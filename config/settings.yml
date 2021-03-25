@@ -1,0 +1,11 @@
+user:
+  name:
+    max_length: 50
+  email:
+    max_length: 100
+    regex: !ruby/regexp /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  password:
+    min_length: 6
+  avatar_size: 50
+  paginate:
+    per_page: 10
