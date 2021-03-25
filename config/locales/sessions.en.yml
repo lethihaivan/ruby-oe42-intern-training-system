@@ -1,0 +1,12 @@
+en:
+  session:
+    title: "Login"
+    email: "Email"
+    password: "Password"
+    new:
+      log_in_succes: "%{user_name } Log in susscessfully"
+      log_in_fail: "Log in fail"
+    destroy:
+      title: "Log out"
+    warning: 
+      not_found: "Not found user"  
