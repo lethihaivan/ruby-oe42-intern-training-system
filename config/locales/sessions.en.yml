@@ -8,5 +8,6 @@ en:
       log_in_fail: "Log in fail"
     destroy:
       title: "Log out"
+      bye: "Goodbye"
     warning: 
       not_found: "Not found user"  

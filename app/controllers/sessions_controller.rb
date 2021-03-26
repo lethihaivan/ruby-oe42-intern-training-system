@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       log_in user
       redirect_to user
     else
-      flash[:danger] = t "session.new.session_error"
+      flash[:danger] = t "session.new.log_in_fail"
       render :new
     end
   end
@@ -20,6 +20,7 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out
-    render :new
+    redirect_to root_path
+    flash[:success] = t("session.destroy.bye")
   end
 end

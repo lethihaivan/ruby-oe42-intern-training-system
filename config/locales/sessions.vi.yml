@@ -8,5 +8,6 @@ vi:
       log_in_fail: "Đăng nhập thất bại"
     destroy:
       title: "Đăng xuất"
+      bye: "Tạm biệt"
     warning: 
       not_found: "Không tìm thấy người dùng"  

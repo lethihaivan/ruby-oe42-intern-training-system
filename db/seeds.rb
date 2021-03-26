@@ -36,3 +36,123 @@ User.create!(name: "Example User",
     end_time:end_time,
     deleted: false )
 end
+
+Course.create!(name: "Ruby on rails OE42",
+  time: 40,
+  status: 0)
+
+Course.create!(name: "Java OE42",
+  time: 20,
+  status: 2)
+
+Course.create!(name: "Front_end OE42",
+  time: 50,
+  status: 2)
+
+Course.create!(name: "QA OE42",
+  time: 40,
+  status: 2)
+
+Course.create!(name: "PHP OE42",
+  time: 40,
+  status: 2)
+Course.create!(name: "Dotnet OE42",
+  time: 40,
+  status: 2)
+Course.create!(name: "NodeJs OE42",
+  time: 40,
+  status: 2)
+
+Subject.create!(name: "Rails",
+  description: "Rails tutorial",
+  time: 10,
+  optional: true,
+  order: 1,
+  course_id: 1
+)
+
+Subject.create!(name: "Git",
+  description: "Git basic and advance",
+  time: 10,
+  optional: true,
+  order: 2,
+  course_id: 2)
+
+Subject.create!(name: "Mysql",
+  description: "MySql basic",
+  time: 10,
+  optional: false,
+  order: 3,
+  course_id: 1)
+
+Subject.create!(name: "Ruby",
+  description: "Ruby programing language",
+  time: 8,
+  optional: true,
+  order: 4,
+  course_id: 4)
+
+Subject.create!(name: "PHP",
+  description: "PHP programing language",
+  time: 6,
+  optional: true,
+  order: 5,
+  course_id: 3)
+
+Subject.create!(name: "Laravel",
+  description: "Laravel quicktasks",
+  time: 4,
+  optional: false,
+  order: 6,
+  course_id: 2)
+
+Subject.create!(name: "Scrum",
+  description: "Basic Scrum",
+  time: 2,
+  optional: true,
+  order: 7,
+  course_id: 4)
+
+99.times do |n|
+  name = Faker::Lorem.sentence(word_count: 5)
+  subject_id = Faker::Number.within(range: 1..6)
+  Task.create!(name: name,
+  subject_id: subject_id)
+end
+
+99.times do |n|
+  course_id = Faker::Number.within(range: 1..6)
+  user_id = Faker::Number.within(range: 1..99)
+  active = true
+  start_date = Faker::Time.between(from: DateTime.now - 24, to: DateTime.now)
+  end_date = Faker::Time.between(from: DateTime.now - 24, to: DateTime.now)
+  UserCourse.create!(
+    active: active,
+    course_id: course_id,
+    user_id: user_id,
+    start_date: start_date,
+    end_date: end_date)
+end
+
+99.times do |n|
+  subject_id = Faker::Number.within(range: 1..6)
+  user_course_id = Faker::Number.within(range: 1..6)
+  status = Faker::Number.within(range: 0..1)
+  start_date = Faker::Time.between(from: DateTime.now - 24, to: DateTime.now)
+  end_date = Faker::Time.between(from: DateTime.now - 24, to: DateTime.now)
+  UserSubject.create!(
+    status: status,
+    subject_id:subject_id,
+    user_course_id: user_course_id,
+    start_date: start_date,
+    end_date: end_date)
+end
+
+99.times do |n|
+  task_id = Faker::Number.within(range: 1..99)
+  user_subject_id = Faker::Number.within(range: 1..99)
+  status = Faker::Number.within(range: 0..1)
+  UserTask.create!(task_id: task_id,
+    user_subject_id: user_subject_id,
+    status: status)
+end

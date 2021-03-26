@@ -11,8 +11,8 @@ module ApplicationHelper
       type = "error"   if type == "alert"
       type = "warning" if type == "danger"
       text = "<script>toastr.#{type}('#{message}');</script>"
-      flash_messages << text.html_escape if message
+      flash_messages << text if message
     end
-    flash_messages.join("\n").html_escape
+    flash_messages.join("\n")
   end
 end
