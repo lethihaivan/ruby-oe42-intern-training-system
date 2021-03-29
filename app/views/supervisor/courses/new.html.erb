@@ -1,0 +1,30 @@
+<% provide(:title, t("courses.supervisor.new.heading")) %>
+<section class="courses_area p_120">
+  <div class="container">
+    <h3 class="mb-30 title_color"><%= t "courses.supervisor.new.heading" %></h3>
+    <%= form_for [:supervisor, @course] do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
+      <div class="form-group">
+        <%= f.label :name, t("courses.supervisor.new.name_course") %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :time, t("courses.supervisor.new.time_estimate") %>
+        <%= f.text_field :time, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :status, t("courses.supervisor.new.status_coures") %>
+        <%= f.text_field :status, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label t("courses.supervisor.new.subject")%>
+        <%= f.select(:subject_ids, load_subjects,
+             {prompt: t("courses.supervisor.new.select_subject")}, multiple: true) %>
+      </div>
+      <div class="form-group button_group">
+        <%= link_to t("courses.supervisor.new.cancel_button"), root_path, class: "btn btn-danger" %>
+        <%= f.submit t("courses.supervisor.new.create_button"), class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</section>

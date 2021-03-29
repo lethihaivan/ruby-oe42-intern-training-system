@@ -1,0 +1,17 @@
+en:
+  courses:
+    supervisor:
+      load_course:
+        course_not_found: " Not found course"
+      create:
+        add_success: "Create course sussccessfully"
+      new:
+        name_course: "Name Course"
+        time_estimate: "Time estimate"
+        status_coures: "Status Course"
+        create_button: "Create Coures"
+        cancel_button: "Cancle"
+        heading: "Create Coures"
+        title: "Add Course"
+        subject: "Subject"
+        select_subject: "Select subject"

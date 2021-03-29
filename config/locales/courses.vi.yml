@@ -1,0 +1,17 @@
+vi:
+  courses:
+    supervisor:
+      load_course:
+        course_not_found: "Không tìm thấy khóa học"
+      create:
+        add_success: "Taọ khóa học thành công"
+      new:
+        name_course: "Tên khóa học"
+        time_estimate: "Thời gian ước lượng"
+        status_coures: "Trạng thái khóa học"
+        create_button: "Tạo khóa học"
+        cancel_button: "Hủy"
+        heading: "Tạo khóa học"
+        title: "Them Course"
+        subject: "Chủ đề"
+        select_subject: "Chọn chủ đề"
