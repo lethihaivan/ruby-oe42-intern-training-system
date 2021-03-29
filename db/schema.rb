@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_29_012223) do
+ActiveRecord::Schema.define(version: 2021_03_29_134226) do
 
   create_table "course_subjects", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "course_id"
@@ -28,6 +28,9 @@ ActiveRecord::Schema.define(version: 2021_03_29_012223) do
     t.integer "status", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string "image"
   end
 
   create_table "reports", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -64,8 +67,6 @@ ActiveRecord::Schema.define(version: 2021_03_29_012223) do
   end
 
   create_table "user_courses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.datetime "start_date"
-    t.datetime "end_date"
     t.boolean "active"
     t.bigint "course_id", null: false
     t.bigint "user_id", null: false

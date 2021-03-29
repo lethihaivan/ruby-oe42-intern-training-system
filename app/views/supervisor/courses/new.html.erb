@@ -14,12 +14,20 @@
       </div>
       <div class="form-group">
         <%= f.label :status, t("courses.supervisor.new.status_coures") %>
-        <%= f.text_field :status, class: "form-control" %>
+        <%= f.select(:status, load_coures_statuses) %>
+      </div>
+      <div class="form-group">
+        <%= f.label t("courses.supervisor.new.start_date")%>
+        <%= f.datetime_field :start_date,class: 'form-control'%>
+      </div>
+      <div class="form-group">
+        <%= f.label t("courses.supervisor.new.end_date")%>
+        <%= f.datetime_field :end_date,class: 'form-control'%>
       </div>
       <div class="form-group">
         <%= f.label t("courses.supervisor.new.subject")%>
         <%= f.select(:subject_ids, load_subjects,
-             {prompt: t("courses.supervisor.new.select_subject")}, multiple: true) %>
+          {prompt: t("courses.supervisor.new.select_subject")}, multiple: true) %>
       </div>
       <div class="form-group button_group">
         <%= link_to t("courses.supervisor.new.cancel_button"), root_path, class: "btn btn-danger" %>

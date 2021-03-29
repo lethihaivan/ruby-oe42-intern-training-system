@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-9">
+    <h4><%= t("courses.supervisor.index.title") %></h4>
+      <%= link_to t("courses.supervisor.new.heading"), new_supervisor_course_path , class: "btn btn-primary"  %>
+      <% if @courses.any? %>
+        <ul class="timeline">
+          <%= render @courses %>
+        </ul>
+        <%= will_paginate @courses %>
+      <% else %>
+        <div class="alert alert-danger"><%= t("courses.no_course") %></div>
+      <% end %>
+    </div>
+  </div>
+</div>

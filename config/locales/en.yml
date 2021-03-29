@@ -1,2 +1,5 @@
 en:
   base_title: "Training System"
+  time:
+    formats:
+      default: "%d-%m-%Y"

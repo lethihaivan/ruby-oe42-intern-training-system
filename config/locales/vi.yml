@@ -1,2 +1,6 @@
 vi:
   base_title: "Hệ thống quản lý đào tạo"
+  time:
+    formats:
+      default: "%d-%m-%Y"
+

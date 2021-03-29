@@ -1,6 +1,11 @@
 class Supervisor::CoursesController < ApplicationController
   before_action :logged_in?, :require_supervisor
-  before_action :load_course, except: %i(new create)
+  before_action :load_course, except: %i(index new create)
+
+  def index
+    @courses = Course.create_newest.paginate page: params[:page],
+      per_page: Settings.course.paginate.per_page
+  end
 
   def new
     @course = Course.new
@@ -19,7 +24,8 @@ class Supervisor::CoursesController < ApplicationController
   private
 
   def course_params
-    params.require(:course).permit :name, :time, :status, subject_ids: []
+    params.require(:course).permit :name, :time, :status, :start_date,
+                                   :end_date, :image, subject_ids: []
   end
 
   def require_supervisor
