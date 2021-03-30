@@ -4,3 +4,4 @@ vi:
       title: "Trang chủ"
     help: 
       title: "Trợ giúp"
+    errors: "Có %{count} lỗi"

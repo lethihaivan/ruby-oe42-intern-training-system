@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  enum status: {admin: 1, trainer: 2, trainee: 3}
+  enum role: {admin: 0, supervisor: 1, trainee: 2}
   validates :name, presence: true,
    length: {maximum: Settings.user.name.max_length}
   validates :email, presence: true,

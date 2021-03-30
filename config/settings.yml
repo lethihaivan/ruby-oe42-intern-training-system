@@ -9,3 +9,6 @@ user:
   avatar_size: 50
   paginate:
     per_page: 10
+course:
+  course_per_page: 5
+  name_min_length: 5

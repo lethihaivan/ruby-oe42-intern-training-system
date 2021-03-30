@@ -6,6 +6,7 @@ vi:
     new:
       log_in_succes: "%{user_name } đã đăng nhập thành công "
       log_in_fail: "Đăng nhập thất bại"
+      not_access: "Không được phép"
     destroy:
       title: "Đăng xuất"
       bye: "Tạm biệt"

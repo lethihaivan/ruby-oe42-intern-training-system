@@ -35,3 +35,6 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 global.toastr = toastr
+$(document).ready(function(){
+  $("#course_subject_ids").select2();
+});

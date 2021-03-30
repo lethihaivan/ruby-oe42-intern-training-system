@@ -4,3 +4,4 @@ en:
       title: "Home"
     help: 
       title: "Help"
+    errors: "Have %{count} errors"

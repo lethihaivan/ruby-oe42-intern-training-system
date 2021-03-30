@@ -6,6 +6,7 @@ en:
     new:
       log_in_succes: "%{user_name } Log in susscessfully"
       log_in_fail: "Log in fail"
+      not_access: "Not Access"
     destroy:
       title: "Log out"
       bye: "Goodbye"

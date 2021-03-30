@@ -156,3 +156,13 @@ end
     user_subject_id: user_subject_id,
     status: status)
 end
+
+
+40.times do |n|
+  course_id = Course.all.pluck(:id).sample
+  subject_id = Subject.all.pluck(:id).sample
+  status = CourseSubject.statuses.keys.sample
+  CourseSubject.create!(course_id: course_id,
+    subject_id: subject_id,
+    status: status)
+end

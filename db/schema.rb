@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_25_035723) do
+ActiveRecord::Schema.define(version: 2021_03_29_012223) do
+
+  create_table "course_subjects", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "course_id"
+    t.bigint "subject_id"
+    t.integer "status", default: 0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_id"], name: "index_course_subjects_on_course_id"
+    t.index ["subject_id"], name: "index_course_subjects_on_subject_id"
+  end
 
   create_table "courses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
@@ -104,6 +114,8 @@ ActiveRecord::Schema.define(version: 2021_03_25_035723) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "course_subjects", "courses"
+  add_foreign_key "course_subjects", "subjects"
   add_foreign_key "reports", "user_courses"
   add_foreign_key "reports", "users"
   add_foreign_key "subjects", "courses"
