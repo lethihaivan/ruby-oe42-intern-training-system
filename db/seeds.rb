@@ -24,7 +24,7 @@ User.create!(name: "Example User",
   gender = Faker::Number.within(range: 0..1)
   date_of_birth = Faker::Time.between(from: DateTime.now - 24, to: DateTime.now)
   start_date = Faker::Time.between(from: DateTime.now - 24, to: DateTime.now)
-  end_time = Faker::Time.between(from: DateTime.now - 24, to: DateTime.now)
+  end_time = Faker::Time.between(from: DateTime.now + 24, to: DateTime.now)
   User.create!(name: name,
     email: email,
     password: password,
@@ -41,47 +41,47 @@ Course.create!(name: "Ruby on rails OE42",
   time: 40,
   status: 0,
   start_date: Faker::Time.between(from: DateTime.now - 24, to: DateTime.now),
-  end_date: Faker::Time.between(from: DateTime.now - 24, to: DateTime.now),
+  end_date: Faker::Time.between(from: DateTime.now + 24, to: DateTime.now),
   image: "")
 
 Course.create!(name: "Java OE42",
   time: 20,
   status: 2,
   start_date: Faker::Time.between(from: DateTime.now - 24, to: DateTime.now),
-  end_date: Faker::Time.between(from: DateTime.now - 24, to: DateTime.now),
+  end_date: Faker::Time.between(from: DateTime.now + 24, to: DateTime.now),
   image: "")
 
 Course.create!(name: "Front_end OE42",
   time: 50,
   status: 2,
   start_date: Faker::Time.between(from: DateTime.now - 24, to: DateTime.now),
-  end_date: Faker::Time.between(from: DateTime.now - 24, to: DateTime.now),
+  end_date: Faker::Time.between(from: DateTime.now + 24, to: DateTime.now),
   image: "")
 
 Course.create!(name: "QA OE42",
   time: 40,
   status: 2,
   start_date: Faker::Time.between(from: DateTime.now - 24, to: DateTime.now),
-  end_date: Faker::Time.between(from: DateTime.now - 24, to: DateTime.now),
+  end_date: Faker::Time.between(from: DateTime.now + 24, to: DateTime.now),
   image: "")
 
 Course.create!(name: "PHP OE42",
   time: 40,
   status: 2,
   start_date: Faker::Time.between(from: DateTime.now - 24, to: DateTime.now),
-  end_date: Faker::Time.between(from: DateTime.now - 24, to: DateTime.now),
+  end_date: Faker::Time.between(from: DateTime.now + 24, to: DateTime.now),
   image: "")
 Course.create!(name: "Dotnet OE42",
   time: 40,
   status: 2,
   start_date: Faker::Time.between(from: DateTime.now - 24, to: DateTime.now),
-  end_date: Faker::Time.between(from: DateTime.now - 24, to: DateTime.now),
+  end_date: Faker::Time.between(from: DateTime.now + 24, to: DateTime.now),
   image: "")
 Course.create!(name: "NodeJs OE42",
   time: 40,
   status: 2,
   start_date: Faker::Time.between(from: DateTime.now - 24, to: DateTime.now),
-  end_date: Faker::Time.between(from: DateTime.now - 24, to: DateTime.now),
+  end_date: Faker::Time.between(from: DateTime.now + 24, to: DateTime.now),
   image: "")
 
 Subject.create!(name: "Rails",
@@ -156,7 +156,7 @@ end
   subject_id = Subject.pluck(:id).sample
   status = UserSubject.statuses.keys.sample
   start_date = Faker::Time.between(from: DateTime.now - 24, to: DateTime.now)
-  end_date = Faker::Time.between(from: DateTime.now - 24, to: DateTime.now)
+  end_date = Faker::Time.between(from: DateTime.now + 24, to: DateTime.now)
   UserSubject.create!(
     status: status,
     subject_id:subject_id,
@@ -178,7 +178,11 @@ end
   course_id = Course.pluck(:id).sample
   subject_id = Subject.pluck(:id).sample
   status = CourseSubject.statuses.keys.sample
+  start_date = Faker::Time.between(from: DateTime.now - 24, to: DateTime.now)
+  end_date = Faker::Time.between(from: DateTime.now + 24, to: DateTime.now)
   CourseSubject.create!(course_id: course_id,
     subject_id: subject_id,
-    status: status)
+    status: status,
+    start_date: start_date,
+    end_date: end_date)
 end

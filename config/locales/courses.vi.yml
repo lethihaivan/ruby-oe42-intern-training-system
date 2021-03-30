@@ -24,3 +24,11 @@ vi:
         detail: "Chi tiết"
         edit: "Chỉnh sửa"
         delete: "Xóa"
+      show:
+        time: "Time: %{time} ngày"
+        guide: "Đường dẫn hướng dẫn bên dưới:"
+        list_trainee: "Danh sách học viên: %{count}"
+        table: 
+          name: "Tên"
+          day_active: "Ngày tham gia"
+          gender: "Giới tính"

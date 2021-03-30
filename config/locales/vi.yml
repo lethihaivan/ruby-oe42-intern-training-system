@@ -3,4 +3,7 @@ vi:
   time:
     formats:
       default: "%d-%m-%Y"
+  will_paginate:
+    previous: "Trước"
+    next: "Sau"
 

@@ -24,3 +24,11 @@ en:
         setting: "Setting"
         edit: "Edit"
         delete: "Delete"
+      show:
+        time: "Time: %{time} day"
+        guide: "Link guideline below here :"
+        list_trainee: "List trannee: %{count}"
+        table: 
+          name: "Name"
+          day_active: "Day active"
+          gender: "Gender"

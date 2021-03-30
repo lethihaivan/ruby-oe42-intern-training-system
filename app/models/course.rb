@@ -2,6 +2,8 @@ class Course < ApplicationRecord
   enum status: {open: 0, start: 1, finished: 2}
   has_many :course_subjects, dependent: :destroy
   has_many :subjects, through: :course_subjects
+  has_many :user_courses, dependent: :destroy
+  has_many :trainees, through: :user_courses, source: :user
   accepts_nested_attributes_for :subjects
   validates :name, presence: true,
     length: {minimum: Settings.course.name_min_length}

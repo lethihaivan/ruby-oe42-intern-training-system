@@ -1,0 +1,7 @@
+vi:
+  activerecord:
+    enums:
+      user:
+        genders:
+          male: "Nam"
+          female: "Nữ"

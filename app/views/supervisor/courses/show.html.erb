@@ -1,0 +1,57 @@
+<div class="content-info mt-3">
+  <ul class="nav nav-tabs  menu-course border-0">
+    <li>
+      <a class="nav-link active" data-toggle="tab" id="tab-subject" href="#subject">
+        <i class="fa fa-list-alt mr-2"></i>
+        <%= @course_subjects.size %>
+      </a>   
+    </li>
+    <li>
+      <a class="nav-link " id="member-area-tab" data-toggle="tab" href="#member">
+        <i class="fa fa-users mr-2"></i>
+        <span id="member-count">
+          <%= @trainees.size %>
+        </span>
+      </a>   
+    </li>
+  </ul>
+  <div class="tab-content float-none">
+    <div id="subject" class="tab-pane active">
+      <div id="list-subject">
+        <% if @course_subjects.any? %>
+          <%= render partial: "course_subjects", collection: @course.course_subjects, as: :course_subject %>
+          <%= will_paginate @course_subjects %>
+        <% else %>
+          <div class="alert alert-danger"><%= t("subjects.no_subject") %></div>
+        <% end %>
+      </div>
+    </div>
+    <div id="member" class="tab-pane fade p-2">
+      <div class="text-right mr-2 mt-3">
+        <%= link_to t("Add Trannee"), new_supervisor_course_path , class: "btn btn-primary"  %>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="d-flex justify-content-between mt-3">
+            <h5 id="trainee-count">
+              <%= t("courses.supervisor.show.list_trainee", count: @trainees.size) %>
+            </h5>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th><%= t "courses.supervisor.show.table.name" %></th>
+                <th><%= t "courses.supervisor.show.table.day_active" %></th>
+                <th><%= t "courses.supervisor.show.table.gender" %></th>
+              </tr>
+            </thead>
+            <tbody id="list_trainee">
+              <%= render partial: "user_course", collection: @trainees,  as: :trainees  %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      </div>
+    </div>
+ </div>
+</div>
