@@ -1,0 +1,43 @@
+div {
+  display: block;
+}
+
+#course-info {
+    display: flex;
+    justify-content: flex-start;
+}
+#course-info {
+  background-color: #fff;
+  border-radius: 5px;
+}
+#course-info .course-image-info {
+  float: left;
+  width: 20%;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+.p-2 {
+  padding: 0.5rem !important;
+}
+#course-info ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#course-info .course-content-info {
+  position: relative;
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+#course-info .actions-tool {
+  float: right;
+  width: 20%;
+}
+.mb-5, .my-5 {
+  margin-bottom: 5rem !important;
+}
+.mt-5, .my-5 {
+  margin-top: 5rem !important;
+}

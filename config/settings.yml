@@ -12,3 +12,5 @@ user:
 course:
   course_per_page: 5
   name_min_length: 5
+  paginate:
+    per_page: 5

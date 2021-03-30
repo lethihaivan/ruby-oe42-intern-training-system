@@ -15,3 +15,12 @@ en:
         title: "Add Course"
         subject: "Subject"
         select_subject: "Select subject"
+        start_date: "Start day"
+        end_date: "End day"
+      index:
+        title: "All Courses"
+        no_course: "No have course"
+        date_validate: "Cannot ends before it began"
+        setting: "Setting"
+        edit: "Edit"
+        delete: "Delete"

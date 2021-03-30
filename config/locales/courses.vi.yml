@@ -15,3 +15,12 @@ vi:
         title: "Them Course"
         subject: "Chủ đề"
         select_subject: "Chọn chủ đề"
+        start_date: "Ngày bắt đầu"
+        end_date: "Ngày kết thúc"
+      index:
+        title: "Tất cả khóa học"
+        no_course: "Không có khóa học nào"
+        date_validate: "Không thể kết thúc trước khi nó bắt đầu"
+        detail: "Chi tiết"
+        edit: "Chỉnh sửa"
+        delete: "Xóa"
