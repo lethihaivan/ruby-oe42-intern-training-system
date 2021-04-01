@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   enum role: {admin: 0, supervisor: 1, trainee: 2}
+  enum gender: {male: 0, female: 1}
   validates :name, presence: true,
    length: {maximum: Settings.user.name.max_length}
   validates :email, presence: true,
@@ -9,6 +10,7 @@ class User < ApplicationRecord
    length: {minimum: Settings.user.password.min_length}
   before_save ->{email.downcase!}
   has_secure_password
+  scope :ordered_by_name, ->{order :name}
 
   def self.digest string
     cost =  if ActiveModel::SecurePassword.min_cost

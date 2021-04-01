@@ -3,3 +3,6 @@ en:
   time:
     formats:
       default: "%d-%m-%Y"
+  will_paginate:
+    previous: "Previous"
+    next: "Next"

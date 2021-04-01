@@ -9,7 +9,8 @@
         <ul class="timeline">
           <%= render @courses %>
         </ul>
-        <%= will_paginate @courses %>
+        <%= will_paginate @courses, :previous_label => t("will_paginate.previous"),
+                                    :next_label => t("will_paginate.next") %>
       <% else %>
         <div class="alert alert-danger"><%= t("courses.no_course") %></div>
       <% end %>

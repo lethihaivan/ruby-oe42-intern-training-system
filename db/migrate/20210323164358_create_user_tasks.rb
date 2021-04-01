@@ -1,7 +1,7 @@
 class CreateUserTasks < ActiveRecord::Migration[6.1]
   def change
     create_table :user_tasks do |t|
-      t.integer :status
+      t.integer :status, default: 0
       t.references :task, null: false
       t.references :user_subject, null: false
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_29_134226) do
+ActiveRecord::Schema.define(version: 2021_03_31_080821) do
 
   create_table "course_subjects", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "course_id"
@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2021_03_29_134226) do
     t.integer "status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.index ["course_id"], name: "index_course_subjects_on_course_id"
     t.index ["subject_id"], name: "index_course_subjects_on_subject_id"
   end
@@ -89,7 +91,7 @@ ActiveRecord::Schema.define(version: 2021_03_29_134226) do
   end
 
   create_table "user_tasks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "status"
+    t.integer "status", default: 0
     t.bigint "task_id", null: false
     t.bigint "user_subject_id", null: false
     t.datetime "created_at", precision: 6, null: false
