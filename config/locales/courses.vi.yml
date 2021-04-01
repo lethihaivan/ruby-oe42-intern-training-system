@@ -32,3 +32,8 @@ vi:
           name: "Tên"
           day_active: "Ngày tham gia"
           gender: "Giới tính"
+      update:
+        success: "Updated Successfully"
+        fail: "Updated Fail"
+      edit:
+        title: "Chỉnh sửa khóa học"

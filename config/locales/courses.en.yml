@@ -32,3 +32,8 @@ en:
           name: "Name"
           day_active: "Day active"
           gender: "Gender"
+      update:
+        success: "Updated Successfully"
+        fail: "Updated Fail"
+      edit:
+        title: "Edit Course"
