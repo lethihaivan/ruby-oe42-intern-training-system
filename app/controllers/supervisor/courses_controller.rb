@@ -1,7 +1,7 @@
 class Supervisor::CoursesController < ApplicationController
   before_action :logged_in?, :require_supervisor
   before_action :load_course, except: %i(index new create)
-  before_action :load_users_subjects, only: %i(new create)
+  before_action :load_users_subjects, only: %i(new create edit update)
   before_action :load_trainees, :load_course_subjects, only: :show
 
   def index
@@ -25,6 +25,18 @@ class Supervisor::CoursesController < ApplicationController
     end
   end
 
+  def edit; end
+
+  def update
+    if @course.update course_params
+      flash[:success] = t("courses.supervisor.update.success")
+      redirect_to supervisor_courses_path
+    else
+      flash.now[:danger] = t("courses.supervisor.update.fail")
+      render :edit
+    end
+  end
+
   private
 
   def course_params
@@ -36,7 +48,7 @@ class Supervisor::CoursesController < ApplicationController
     return if current_user.supervisor?
 
     flash[:success] = t "session.new.not_access"
-    redirect_to root_path
+    redirect_to supervisor_course_path
   end
 
   def load_course
