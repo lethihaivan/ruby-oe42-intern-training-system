@@ -128,8 +128,6 @@ GEM
       dry-equalizer (~> 0.2)
       dry-initializer (~> 3.0)
       dry-schema (~> 1.5, >= 1.5.2)
-    enum_help (0.0.17)
-      activesupport (>= 3.0.0)
     erubi (1.10.0)
     execjs (2.7.0)
     faker (2.1.2)
@@ -323,7 +321,6 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   config
-  enum_help
   faker (= 2.1.2)
   figaro
   font-awesome-sass (~> 5.15.1)

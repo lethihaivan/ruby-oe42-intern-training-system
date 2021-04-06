@@ -8,6 +8,13 @@ Rails.application.routes.draw do
     resources :users, only: :show
     namespace :supervisor do
       resources :courses
+      resources :courses do
+        member do
+          get "assign_trainee"
+          post "add_trainee" 
+        end
+      end
     end
+    
   end
 end

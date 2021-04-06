@@ -10,7 +10,7 @@
       <a class="nav-link " id="member-area-tab" data-toggle="tab" href="#member">
         <i class="fa fa-users mr-2"></i>
         <span id="member-count">
-          <%= @trainees.size %>
+          <%= @trainees.count %>
         </span>
       </a>   
     </li>
@@ -27,14 +27,12 @@
       </div>
     </div>
     <div id="member" class="tab-pane fade p-2">
-      <div class="text-right mr-2 mt-3">
-        <%= link_to t("Add Trannee"), new_supervisor_course_path , class: "btn btn-primary"  %>
-      </div>
+      <%= button_to t("courses.supervisor.assign_trainee"), assign_trainee_supervisor_course_path(@course), method: :get, class: "btn btn-success float-right", remote: true %>
       <div class="row">
         <div class="col-md-12">
           <div class="d-flex justify-content-between mt-3">
             <h5 id="trainee-count">
-              <%= t("courses.supervisor.show.list_trainee", count: @trainees.size) %>
+              <%= t("courses.supervisor.show.list_trainee", count: @trainees.count) %>
             </h5>
           </div>
           <table class="table">
@@ -53,5 +51,17 @@
       </div>
       </div>
     </div>
+     <div class="tab-pane fade" id="pills-trainee" role="tabpanel" aria-labelledby="pills-trainee-tab">
+      <ul class="list-group list-group-flush">
+       <% if @trainees.any? %>
+         <%= render partial: "shared/trainee", collection: @course.trainees, as: :trainee %>
+         <%= will_paginate @trainees %>
+       <% else %>
+         <div class="alert alert-danger" id="no_trainees"><%= t("courses.no_trainee") %>
+         </div>
+       <% end %>
+      </ul>
+    </div>
  </div>
 </div>
+<div class="modal fade" id="modal-trainee">

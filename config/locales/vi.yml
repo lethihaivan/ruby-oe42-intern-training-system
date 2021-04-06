@@ -6,4 +6,7 @@ vi:
   will_paginate:
     previous: "Trước"
     next: "Sau"
+  alert:
+    no_choose_user: "Chưa chọn hs thêm ào khoá học"
+    success: "Thêm thành công"
 

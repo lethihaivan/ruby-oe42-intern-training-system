@@ -11,7 +11,11 @@ class User < ApplicationRecord
   before_save ->{email.downcase!}
   has_secure_password
   scope :ordered_by_name, ->{order :name}
-
+  scope :by_ids, ->(ids){where id: ids}
+  scope :not_exit_on_course, (lambda do |course_id|
+    where("id not in (?)", UserCourse.select("user_id")
+   .where(course_id: course_id))
+  end)
   def self.digest string
     cost =  if ActiveModel::SecurePassword.min_cost
               BCrypt::Engine::MIN_COST

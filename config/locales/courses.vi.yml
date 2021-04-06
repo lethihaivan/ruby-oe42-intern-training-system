@@ -1,8 +1,10 @@
 vi:
   courses:
     supervisor:
+      assign_trainee: "Thêm thành viên"
       load_course:
         course_not_found: "Không tìm thấy khóa học"
+        check_open?: "Khóa hoc chưa mở"
       create:
         add_success: "Taọ khóa học thành công"
       new:
