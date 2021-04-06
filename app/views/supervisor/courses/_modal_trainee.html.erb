@@ -1,0 +1,32 @@
+<div class="modal-dialog modal-lg" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title"><%= t "courses.assign_trainee_title" %></h5>
+      <button type="button" class="close" data-dismiss="modal">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <% if users.any? %>
+        <fieldset class="group">
+          <ul class="checkbox">
+            <%= collection_check_boxes(:course, :trainee_ids, users, :id, :name) do |b| %>
+              <li>
+                <%= b.label %>
+                <%= b.check_box %>
+              </li>
+            <% end %>
+          </ul>
+          <%= will_paginate users %>
+        </fieldset>
+      <% else %>
+        <div class="alert alert-danger"><%= t "courses.no_users_to_add" %></div>
+      <% end %>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= t "close" %></button>
+      <button type="button" class="btn btn-primary" id="add_trainee"><%= t "courses.supervisor.assign_trainee" %></button>
+    </div>
+  </div>
+</div>
+

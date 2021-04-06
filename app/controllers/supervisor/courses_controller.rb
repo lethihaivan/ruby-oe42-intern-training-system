@@ -3,7 +3,7 @@ class Supervisor::CoursesController < ApplicationController
   before_action :load_course, except: %i(index new create)
   before_action :load_users_subjects, only: %i(new create edit update)
   before_action :load_trainees, :load_course_subjects, only: :show
-
+  before_action :check_avalible_course, only: :add_trainee
   def index
     @courses = Course.create_newest.paginate page: params[:page],
       per_page: Settings.course.paginate.per_page
@@ -37,7 +37,39 @@ class Supervisor::CoursesController < ApplicationController
     end
   end
 
+  def assign_trainee
+    @users = User.not_exit_on_course(@course).paginate page: params[:page],
+      per_page: Settings.course.paginate.per_page
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def add_trainee
+    trainee_ids = params[:trainee_ids]
+    ActiveRecord::Base.transaction do
+      trainee_ids.each do |trainee_id|
+        @course.user_courses.create! user_id: trainee_id
+      end
+    end
+    render json: User.by_ids(trainee_ids).select(:id, :name)
+  rescue StandardError
+    flash[:error] = t "alert.erros"
+  ensure
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
   private
+
+  def check_avalible_course
+    return if @course.open?
+
+    flash[:warning] = t("courses.supervisor.load_course.check_open?")
+    redirect_to root_path
+  end
 
   def course_params
     params.require(:course).permit :name, :time, :status, :start_date,
