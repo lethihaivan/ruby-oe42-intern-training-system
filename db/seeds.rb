@@ -53,7 +53,7 @@ Course.create!(name: "Java OE42",
 
 Course.create!(name: "Front_end OE42",
   time: 50,
-  status: 2,
+  status: 0,
   start_date: Faker::Time.between(from: DateTime.now - 24, to: DateTime.now),
   end_date: Faker::Time.between(from: DateTime.now + 24, to: DateTime.now),
   image: "")
@@ -67,19 +67,19 @@ Course.create!(name: "QA OE42",
 
 Course.create!(name: "PHP OE42",
   time: 40,
-  status: 2,
+  status: 0,
   start_date: Faker::Time.between(from: DateTime.now - 24, to: DateTime.now),
   end_date: Faker::Time.between(from: DateTime.now + 24, to: DateTime.now),
   image: "")
 Course.create!(name: "Dotnet OE42",
   time: 40,
-  status: 2,
+  status: 1,
   start_date: Faker::Time.between(from: DateTime.now - 24, to: DateTime.now),
   end_date: Faker::Time.between(from: DateTime.now + 24, to: DateTime.now),
   image: "")
 Course.create!(name: "NodeJs OE42",
   time: 40,
-  status: 2,
+  status: 1,
   start_date: Faker::Time.between(from: DateTime.now - 24, to: DateTime.now),
   end_date: Faker::Time.between(from: DateTime.now + 24, to: DateTime.now),
   image: "")
@@ -144,9 +144,9 @@ end
 99.times do |n|
   course_id = Course.pluck(:id).sample
   user_id = User.pluck(:id).sample
-  active = true
+  status = UserCourse.statuses.keys.sample
   UserCourse.create!(
-    active: active,
+    status: status,
     course_id: course_id,
     user_id: user_id)
 end

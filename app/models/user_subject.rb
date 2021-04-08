@@ -1,6 +1,5 @@
 class UserSubject < ApplicationRecord
-  belongs_to :user_course
-  belongs_to :subject
+  belongs_to :user
   belongs_to :course_subject
   has_many :user_tasks, dependent: :destroy
   enum status: {joined: 0, active: 1, finished: 2}
