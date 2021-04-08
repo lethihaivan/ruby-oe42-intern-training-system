@@ -40,20 +40,25 @@ class Supervisor::CoursesController < ApplicationController
   end
 
   def start
-    ActiveRecord::Base.transaction do
-      cou_sub_ids = @course.course_subjects
-                           .pluck(:id)
-                           .map{|id| {course_subject_id: id, status: :joined}}
-      @course.start!
-      chage_status = proc{|n| n.active!}
-      @course.user_courses.map(&chage_status)
-      @course.trainees.each do |trainee|
-        trainee.user_subjects.create! cou_sub_ids
-      end
+    if @course.open?
+      update_when_start_course
+    else
+      flash[:warning] = t "courses.supervisor.start_course_not_allow"
     end
-    flash[:success] = t("courses.supervisor.start_success")
-  rescue StandardError
-    flash[:danger] = t("courses.supervisor.start_fail")
+    respond_to do |format|
+      format.html{redirect_to request.referer}
+    end
+  end
+
+  def finish
+    if @course.start?
+      update_when_finish_course
+    else
+      flash[:warning] = t "courses.supervisor.finish_course_not_allow"
+    end
+    respond_to do |format|
+      format.html{redirect_to request.referer}
+    end
   end
 
   def assign_trainee
@@ -141,5 +146,39 @@ class Supervisor::CoursesController < ApplicationController
 
     flash[:warning] = t("courses.supervisor.load_course.trainee_course?")
     redirect_to root_path
+  end
+
+  def update_when_start_course
+    ActiveRecord::Base.transaction do
+      cou_sub_ids = @course.course_subjects
+                           .pluck(:id)
+                           .map{|id| {course_subject_id: id, status: :joined}}
+      @course.start!
+      chage_status = proc{|n| n.active!}
+      @course.user_courses.map(&chage_status)
+      @course.trainees.each do |trainee|
+        trainee.user_subjects.create! cou_sub_ids
+      end
+    end
+    flash[:success] = t("courses.supervisor.start_success")
+  rescue StandardError
+    flash[:danger] = t("courses.supervisor.start_fail")
+  end
+
+  def update_when_finish_course
+    ActiveRecord::Base.transaction do
+      @course.finished!
+      chage_status = proc{|n| n.finished!}
+      @course.course_subjects.map(&chage_status)
+      @course.course_subjects.each do |course_subject|
+        course_subject.user_subjects.map(&chage_status)
+        course_subject.user_subjects.each do |user_subject|
+          user_subject.user_tasks.map(&chage_status)
+        end
+      end
+    end
+    flash[:success] = t "courses.supervisor.finish_course_sussccess"
+  rescue StandardError
+    flash[:danger] = t "courses.supervisor.finish_course_fail"
   end
 end

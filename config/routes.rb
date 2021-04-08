@@ -14,6 +14,7 @@ Rails.application.routes.draw do
           post "add_trainee" 
           delete "delete_trainee"
           post "start"
+          patch "finish"
         end
       end
     end

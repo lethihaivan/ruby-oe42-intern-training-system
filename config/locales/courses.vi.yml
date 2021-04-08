@@ -2,11 +2,16 @@ vi:
   courses:
     supervisor:
       start_success: "Bắt đầu khóa học thành công"
-      start_fail: "Bắt đầu khóa học thất bại"      
+      start_fail: "Bắt đầu khóa học thất bại"
+      confirm_finish: "Bạn có chắc là muốn kết thúc khóa học ?????"
+      start_course_not_allow: "Không được phép bắt khóa hoc"
+      finish_course_not_allow: "Không được phép kết thúc khóa hoc "
+      finish_course_fail: "Kết thúc khóa học thất bại"
+      finish_course_sussccess: "Kết thúc khóa học thành công"   
       assign_trainee: "Thêm thành viên"
       load_course:
         course_not_found: "Không tìm thấy khóa học"
-        check_trainee_on_course: "Thực tập sinh khoong tồn tại trên khóa hoc"
+        trainee_course: "Thực tập sinh khoong tồn tại trên khóa hoc"
         check_open?: "Khóa hoc chưa mở"
       create:
         add_success: "Taọ khóa học thành công"
