@@ -4,6 +4,7 @@ vi:
       assign_trainee: "Thêm thành viên"
       load_course:
         course_not_found: "Không tìm thấy khóa học"
+        trainee_course: "Thực tập sinh khoong tồn tại trên khóa hoc"
         check_open?: "Khóa hoc chưa mở"
       create:
         add_success: "Taọ khóa học thành công"

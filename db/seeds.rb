@@ -151,29 +151,6 @@ end
     user_id: user_id)
 end
 
-99.times do |n|
-  user_course_id = UserCourse.pluck(:id).sample
-  subject_id = Subject.pluck(:id).sample
-  status = UserSubject.statuses.keys.sample
-  start_date = Faker::Time.between(from: DateTime.now - 24, to: DateTime.now)
-  end_date = Faker::Time.between(from: DateTime.now + 24, to: DateTime.now)
-  UserSubject.create!(
-    status: status,
-    subject_id:subject_id,
-    user_course_id: user_course_id,
-    start_date: start_date,
-    end_date: end_date)
-end
-
-99.times do |n|
-  task_id = Task.pluck(:id).sample
-  user_subject_id = UserSubject.pluck(:id).sample
-  status = UserTask.statuses.keys.sample
-  UserTask.create!(task_id: task_id,
-    user_subject_id: user_subject_id,
-    status: status)
-end
-
 40.times do |n|
   course_id = Course.pluck(:id).sample
   subject_id = Subject.pluck(:id).sample
@@ -185,4 +162,27 @@ end
     status: status,
     start_date: start_date,
     end_date: end_date)
+end
+
+99.times do |n|
+  course_subject_id = CourseSubject.pluck(:id).sample
+  user_id = User.pluck(:id).sample
+  status = UserSubject.statuses.keys.sample
+  start_date = Faker::Time.between(from: DateTime.now - 24, to: DateTime.now)
+  end_date = Faker::Time.between(from: DateTime.now + 24, to: DateTime.now)
+  UserSubject.create!(
+    status: status,
+    course_subject_id:course_subject_id,
+    user_id: user_id,
+    start_date: start_date,
+    end_date: end_date)
+end
+
+99.times do |n|
+  task_id = Task.pluck(:id).sample
+  user_subject_id = UserSubject.pluck(:id).sample
+  status = UserTask.statuses.keys.sample
+  UserTask.create!(task_id: task_id,
+    user_subject_id: user_subject_id,
+    status: status)
 end

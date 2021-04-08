@@ -9,4 +9,4 @@ vi:
   alert:
     no_choose_user: "Chưa chọn hs thêm ào khoá học"
     success: "Thêm thành công"
-
+    delete_success: "Xóa thành công"

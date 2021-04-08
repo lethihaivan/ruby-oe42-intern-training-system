@@ -35,32 +35,18 @@
               <%= t("courses.supervisor.show.list_trainee", count: @trainees.count) %>
             </h5>
           </div>
-          <table class="table">
-            <thead>
-              <tr>
-                <th><%= t "courses.supervisor.show.table.name" %></th>
-                <th><%= t "courses.supervisor.show.table.day_active" %></th>
-                <th><%= t "courses.supervisor.show.table.gender" %></th>
-              </tr>
-            </thead>
-            <tbody id="list_trainee">
-              <%= render partial: "user_course", collection: @trainees,  as: :trainees  %>
-            </tbody>
-          </table>
+          <ul class="list-group list-group-flush">
+            <% if @trainees.any? %>
+              <%= render partial: "shared/trainee", collection: @course.trainees, as: :trainee %>
+              <%= will_paginate @trainees %>
+            <% else %>
+              <div class="alert alert-danger" id="no_trainees"><%= t("courses.no_trainee") %>
+              </div>
+            <% end %>
+          </ul>
         </div>
       </div>
       </div>
-    </div>
-     <div class="tab-pane fade" id="pills-trainee" role="tabpanel" aria-labelledby="pills-trainee-tab">
-      <ul class="list-group list-group-flush">
-       <% if @trainees.any? %>
-         <%= render partial: "shared/trainee", collection: @course.trainees, as: :trainee %>
-         <%= will_paginate @trainees %>
-       <% else %>
-         <div class="alert alert-danger" id="no_trainees"><%= t("courses.no_trainee") %>
-         </div>
-       <% end %>
-      </ul>
     </div>
  </div>
 </div>

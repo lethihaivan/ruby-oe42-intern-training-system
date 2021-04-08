@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_31_080821) do
+ActiveRecord::Schema.define(version: 2021_04_07_125918) do
 
   create_table "course_subjects", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "course_id"
@@ -82,12 +82,12 @@ ActiveRecord::Schema.define(version: 2021_03_31_080821) do
     t.datetime "start_date"
     t.datetime "end_date"
     t.integer "status", default: 0
-    t.bigint "user_course_id", null: false
-    t.bigint "subject_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["subject_id"], name: "index_user_subjects_on_subject_id"
-    t.index ["user_course_id"], name: "index_user_subjects_on_user_course_id"
+    t.bigint "course_subject_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["course_subject_id"], name: "index_user_subjects_on_course_subject_id"
+    t.index ["user_id"], name: "index_user_subjects_on_user_id"
   end
 
   create_table "user_tasks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -125,8 +125,8 @@ ActiveRecord::Schema.define(version: 2021_03_31_080821) do
   add_foreign_key "tasks", "subjects"
   add_foreign_key "user_courses", "courses"
   add_foreign_key "user_courses", "users"
-  add_foreign_key "user_subjects", "subjects"
-  add_foreign_key "user_subjects", "user_courses"
+  add_foreign_key "user_subjects", "course_subjects"
+  add_foreign_key "user_subjects", "users"
   add_foreign_key "user_tasks", "tasks"
   add_foreign_key "user_tasks", "user_subjects"
 end
