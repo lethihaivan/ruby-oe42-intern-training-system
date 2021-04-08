@@ -5,6 +5,7 @@ en:
       load_course:
         course_not_found: " Not found course"
         check_open?: "This course not open"
+        trainee_course: "Trainee not exit on courese"
       create:
         add_success: "Create course sussccessfully"
       new:
@@ -39,4 +40,3 @@ en:
         fail: "Updated Fail"
       edit:
         title: "Edit Course"
-      

@@ -6,7 +6,8 @@ en:
   will_paginate:
     previous: "Previous"
     next: "Next"
-    alert:
-      no_choose_user: "Has been no choose user add couses"
-      success: "Add success"
-      erros: "Has errors"
+  alert:
+    no_choose_user: "Has been no choose user add couses"
+    success: "Add success"
+    erros: "Has errors"
+    delete_success: "Deleted success"

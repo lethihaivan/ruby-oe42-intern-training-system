@@ -61,10 +61,24 @@ $(document).on('click', '#add_trainee', function(e){
       dataType: 'script',
       success: function(data) {
         alert(I18n.t("alert.success"));
+        window.location.reload()
       }
     });
     $('#modal-trainee').modal('hide');
     $('.nav-item a[href="#pills-trainee"]').tab('show');
   };
+});
+$(document).on('click', '#delete_trainee', function(e){
+  var trainee_id = parseInt($(this).attr('trainee_id'));
+    $.ajax({
+      url: window.location.href + '/delete_trainee',
+      data: {user_id: trainee_id},
+      type: 'DELETE',
+      dataType: 'script',
+      success: function(data) {
+        alert(I18n.t("alert.delete_success"));
+        window.location.reload()
+      }
+    })
 });
 

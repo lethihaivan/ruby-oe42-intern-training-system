@@ -4,6 +4,8 @@ class Supervisor::CoursesController < ApplicationController
   before_action :load_users_subjects, only: %i(new create edit update)
   before_action :load_trainees, :load_course_subjects, only: :show
   before_action :check_avalible_course, only: :add_trainee
+  before_action :check_trainee_on_course, only: :delete_trainee
+
   def index
     @courses = Course.create_newest.paginate page: params[:page],
       per_page: Settings.course.paginate.per_page
@@ -62,6 +64,18 @@ class Supervisor::CoursesController < ApplicationController
     end
   end
 
+  def delete_trainee
+    ActiveRecord::Base.transaction do
+      @course.course_subjects.each do |course_subject|
+        course_subject.user_subjects.by_user(@trainee.user_id).destroy_all
+      end
+      @trainee.destroy!
+    end
+    render json: {success: t("courses.delete_trainee_success")}
+  rescue StandardError
+    flash[:error] = t "alert.erros"
+  end
+
   private
 
   def check_avalible_course
@@ -101,5 +115,14 @@ class Supervisor::CoursesController < ApplicationController
     @course_subjects = @course.course_subjects.includes(subject: :tasks)
                               .paginate page: params[:page],
                                per_page: Settings.user.paginate.per_page
+  end
+
+  def check_trainee_on_course
+    @trainee = UserCourse.find_by user_id: params[:user_id],
+                                  course_id: @course.id
+    return if @trainee
+
+    flash[:warning] = t("courses.supervisor.load_course.trainee_course?")
+    redirect_to root_path
   end
 end
