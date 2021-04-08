@@ -25,6 +25,7 @@
   </ul>
 </div>
 <div class="country">
+  <%= link_to t("courses.start"), start_supervisor_course_path(course), method: :post, class: "btn btn-warning float-right" if course.open? %>
   <%= link_to t("courses.supervisor.index.edit"), edit_supervisor_course_path(course.id), class: "btn btn-primary" %>
   <%= link_to t("courses.supervisor.index.delete"), supervisor_course_path(course.id), class: "btn btn-danger",
     method: :delete, data: {confirm: t(".delete_confirm")} %>

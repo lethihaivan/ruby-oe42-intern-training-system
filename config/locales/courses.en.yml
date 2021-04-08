@@ -1,11 +1,13 @@
 en:
   courses:
     supervisor:
+      start_success: "Start course sussccessfully"
+      start_fail: "Start course fail"
       assign_trainee: "Add Trainne"
       load_course:
         course_not_found: " Not found course"
         check_open?: "This course not open"
-        trainee_course: "Trainee not exit on courese"
+        check_trainee_on_course: "Trainee not exit on courese"
       create:
         add_success: "Create course sussccessfully"
       new:

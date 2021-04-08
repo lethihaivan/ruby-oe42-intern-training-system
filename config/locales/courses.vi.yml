@@ -1,10 +1,12 @@
 vi:
   courses:
     supervisor:
+      start_success: "Bắt đầu khóa học thành công"
+      start_fail: "Bắt đầu khóa học thất bại"      
       assign_trainee: "Thêm thành viên"
       load_course:
         course_not_found: "Không tìm thấy khóa học"
-        trainee_course: "Thực tập sinh khoong tồn tại trên khóa hoc"
+        check_trainee_on_course: "Thực tập sinh khoong tồn tại trên khóa hoc"
         check_open?: "Khóa hoc chưa mở"
       create:
         add_success: "Taọ khóa học thành công"

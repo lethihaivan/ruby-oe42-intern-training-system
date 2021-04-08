@@ -39,6 +39,23 @@ class Supervisor::CoursesController < ApplicationController
     end
   end
 
+  def start
+    ActiveRecord::Base.transaction do
+      cou_sub_ids = @course.course_subjects
+                           .pluck(:id)
+                           .map{|id| {course_subject_id: id, status: :joined}}
+      @course.start!
+      chage_status = proc{|n| n.active!}
+      @course.user_courses.map(&chage_status)
+      @course.trainees.each do |trainee|
+        trainee.user_subjects.create! cou_sub_ids
+      end
+    end
+    flash[:success] = t("courses.supervisor.start_success")
+  rescue StandardError
+    flash[:danger] = t("courses.supervisor.start_fail")
+  end
+
   def assign_trainee
     @users = User.not_exit_on_course(@course).paginate page: params[:page],
       per_page: Settings.course.paginate.per_page
