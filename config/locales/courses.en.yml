@@ -3,11 +3,16 @@ en:
     supervisor:
       start_success: "Start course sussccessfully"
       start_fail: "Start course fail"
+      confirm_finish: "Are you sure finish ?????"
+      start_course_not_allow: "Not allow start course"
+      finish_course_not_allow: "Not allow finish course"
+      finish_course_fail: "Finish course fail"
+      finish_course_sussccess: "Finish course sussccessfully"
       assign_trainee: "Add Trainne"
       load_course:
         course_not_found: " Not found course"
         check_open?: "This course not open"
-        check_trainee_on_course: "Trainee not exit on courese"
+        trainee_course: "Trainee not exit on courese"
       create:
         add_success: "Create course sussccessfully"
       new:
