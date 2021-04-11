@@ -1,5 +1,7 @@
 vi:
   courses:
+    subjects: 
+      list_tasks: "Danh sách nhiệm vụ"
     supervisor:
       start_success: "Bắt đầu khóa học thành công"
       start_fail: "Bắt đầu khóa học thất bại"
