@@ -1,5 +1,8 @@
 vi:
   courses:
+    subjects: 
+      list_tasks: "Danh sách nhiệm vụ"
+      course_subject_not_found: "Không tìm thấy chủ đề khóa học"
     supervisor:
       start_success: "Bắt đầu khóa học thành công"
       start_fail: "Bắt đầu khóa học thất bại"
