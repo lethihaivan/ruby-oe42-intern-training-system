@@ -1,5 +1,8 @@
 en:
   courses:
+    subjects: 
+      list_tasks: "List Task"
+      course_subject_not_found: "Not found subject of course"
     supervisor:
       start_success: "Start course sussccessfully"
       start_fail: "Start course fail"

@@ -38,7 +38,8 @@
           <ul class="list-group list-group-flush">
             <% if @trainees.any? %>
               <%= render partial: "shared/trainee", collection: @course.trainees, as: :trainee %>
-              <%= will_paginate @trainees %>
+              <%= will_paginate @trainees, :previous_label => t("will_paginate.previous"),
+                                    :next_label => t("will_paginate.next") %>
             <% else %>
               <div class="alert alert-danger" id="no_trainees"><%= t("courses.no_trainee") %>
               </div>
