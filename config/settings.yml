@@ -10,7 +10,7 @@ user:
   paginate:
     per_page: 10
 course:
-  course_per_page: 5
+  course_per_page: 10
   name_min_length: 5
   paginate:
     per_page: 5

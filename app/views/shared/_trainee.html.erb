@@ -1,6 +1,8 @@
 <li class="list-group-item"><%= trainee.name %>
-  <div class="pull-right action-buttons">
-    <i class="fa fa-pencil" aria-hidden="true"></i>
-    <i class="fa fa-trash" id="delete_trainee" trainee_id="<%= trainee.id %>"></i>
-  </div>
-</li>
+<div class="progress">
+  <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" 
+    style="width: <%= number_to_percent user_task_finished(@course.id, trainee.id).size,
+    task_of_course(@course).size %>%" ><%= number_to_percent  user_task_finished(@course.id,
+    trainee.id).size, task_of_course(@course).size %>%</div>
+</div>
+<i class="fa fa-trash" id="delete_trainee" trainee_id="<%= trainee.id %>"></i>

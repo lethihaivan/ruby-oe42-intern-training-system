@@ -21,7 +21,7 @@ class Supervisor::CoursesController < ApplicationController
     @course = Course.new course_params
     if @course.save
       flash[:success] = t "courses.supervisor.create.add_success"
-      redirect_to root_path
+      redirect_to supervisor_courses_path
     else
       render :new
     end
@@ -76,7 +76,7 @@ class Supervisor::CoursesController < ApplicationController
         @course.user_courses.create! user_id: trainee_id
       end
     end
-    render json: User.by_ids(trainee_ids).select(:id, :name)
+    render json: {success: t("courses.add_trainee_success")}
   rescue StandardError
     flash[:error] = t "alert.erros"
   ensure
@@ -88,8 +88,10 @@ class Supervisor::CoursesController < ApplicationController
 
   def delete_trainee
     ActiveRecord::Base.transaction do
+      destroy_trainee = proc{|n| n.destroy!}
       @course.course_subjects.each do |course_subject|
-        course_subject.user_subjects.by_user(@trainee.user_id).destroy_all
+        course_subject.user_subjects
+                      .by_user(@trainee.user_id).map(&destroy_trainee)
       end
       @trainee.destroy!
     end
@@ -145,7 +147,7 @@ class Supervisor::CoursesController < ApplicationController
     return if @trainee
 
     flash[:warning] = t("courses.supervisor.load_course.trainee_course?")
-    redirect_to root_path
+    redirect_to supervisor_courses_path
   end
 
   def update_when_start_course
