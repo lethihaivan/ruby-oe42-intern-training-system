@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render "shared/sidebar" %>
+    </div>
+    <div class="col-md-9">
+      <h4><%= t("subjects.all") %></h4>
+      <%= link_to t("subjects.new"), new_subject_path , class: "btn btn-info btn-block"  %>
+      <% if @subjects.any? %>
+        <%= render @subjects %>
+        <%= will_paginate @subjects %>
+      <% else %>
+        <div class="alert alert-danger"><%= t("subjects.no_subject") %></div>
+      <% end %>
+    </div>
+  </div>
+</div>

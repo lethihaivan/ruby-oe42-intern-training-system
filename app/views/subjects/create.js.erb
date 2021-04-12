@@ -1,0 +1,5 @@
+<% if @ers %>
+  <% @ers.each do |msg| %>
+    alertify.error('<%= msg %>');
+  <% end %>
+<% end %>

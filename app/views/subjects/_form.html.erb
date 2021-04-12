@@ -1,0 +1,31 @@
+<%= form_with(model: subject, id: "form_subject", remote: true) do |form| %>
+  <%= render "shared/error_messages", object: form.object %>
+  <div class="form-group row">
+    <%= form.label t("subjects.name"), class: "col-form-label col-sm-2" %>
+    <%= form.text_field :name, class: "form-control col-sm-10" %>
+  </div>
+  <div class="form-group row">
+    <%= form.label t("subjects.time_day"), class: "col-sm-2" %>
+    <%= form.number_field :time, {class: "form-control col-sm-3"} %>
+  </div>
+  <div class="form-group">
+    <%= form.label t("subjects.description"), class: "col-sm-2" %>
+    <%= form.text_area :description, class: "form-control col-sm-10" %>
+  </div>
+  <div class="form-group row" id="form_tasks">
+    <button type="button" class="duplicate_nested_form btn btn-success col-md-3"><%= t ("subjects.task.add_more") %></button>
+    <div class="task float-right">
+      <%= t ("subjects.has_tasks") %>
+      <span id="number_sum"><%= @subject.tasks.size ? @subject.tasks.size : t("subjects.one_tasks") %></span><%= t("subjects.tasks") %>
+    </div>
+    <%= form.fields_for :tasks do |f| %>
+        <%= f.label t("subjects.name") %>
+        <%= f.text_field :name, class: "form-control" %>
+        <%= link_to t("subjects.task.remove"), "", class: "destroy_nested_form_tasks btn btn-danger" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="form-group row">
+    <%= form.submit yield(:button_text) ,class: "btn btn-primary btn-block" %>
+  </div>
+<% end %>

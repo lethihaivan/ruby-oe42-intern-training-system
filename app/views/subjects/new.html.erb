@@ -1,0 +1,6 @@
+<% provide :title, t("subjects.new") %>
+<h1><%= t("subjects.new") %></h1>
+<% provide :button_text, t("subjects.btn_create") %>
+<%= render "form", subject: @subject %>
+
+<%= link_to t(".subjects.back"), subjects_path %>

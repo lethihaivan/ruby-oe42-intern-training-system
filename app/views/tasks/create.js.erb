@@ -1,0 +1,10 @@
+<% if @ers %>
+  <% @ers.each do |msg| %>
+    alertify.error('<%= msg %>');
+  <% end %>
+<% else %>
+  $('#list_tasks_in_subject').prepend('<%= j render "task", task: @task %>')
+  $('.no_task').remove();
+  $('#new_task').modal('hide');
+  alertify.success(I18n.t('subjects.task.create_success'));
+<% end %>

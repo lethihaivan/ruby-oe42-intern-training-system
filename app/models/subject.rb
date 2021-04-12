@@ -3,4 +3,5 @@ class Subject < ApplicationRecord
   has_many :course_subjects, dependent: :destroy
   has_many :courses, through: :course_subjects
   scope :ordered_by_name, ->{order :name}
+  accepts_nested_attributes_for :tasks
 end

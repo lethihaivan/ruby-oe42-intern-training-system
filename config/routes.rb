@@ -19,5 +19,8 @@ Rails.application.routes.draw do
       end
     end
     resources :course_subjects, only: :show
+    resources :subjects do
+      resources :tasks, except: %i(index show)
+    end
   end
 end

@@ -1,0 +1,35 @@
+<div class="panel panel-default">
+  <ul class="list-group">
+    <li class="list-group-item <%= status_subject subject.status %>">
+      <div class="row">
+        <div class="col-md-9">
+          <h2 class="title_subject"><%= link_to subject.name, subject %></h2>
+          <small><%= subject.description %></small>
+        </div>
+        <div class="col-md-3">
+          <i class="fa fa-chevron-down pull-right toggle_subject" data-toggle="subject-<%= subject.id %>"></i>
+          <span class="sum_task">
+            <span class="badge badge-secondary"><%= subject.tasks.size %></span><%= t("subjects.tasks") %>
+            <span class="badge badge-danger"><%= subject.time_day %></span><%= t("subjects.time_day") %>
+          </span>
+        </div>
+      </div>
+      <div id="subject-<%= subject.id %>">
+        <div class="container">
+          <% if subject.tasks.any? %>
+            <div class="fluid-row">
+              <div class="tasks_mess"><%= t("subjects.list_tasks") %></div>
+              <div class="col">
+                <ul class="list_tasks">
+                  <%= render partial: "shared/task", collection: subject.tasks, as: :task %>
+                </ul>
+              </div>
+            </div>
+          <% else %>
+            <div class="alert alert-warning"><%= t("subjects.task.no_tasks") %></div>
+          <% end %>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

@@ -8,6 +8,7 @@
         <% if logged_in? %>
           <% if current_user.supervisor? %>
             <li><%= link_to t("courses.supervisor.new.heading"), new_supervisor_course_path %></li>
+            <li><%= link_to t(".all_subjects"), new_subject_path , class: "heading" %></li>
           <% end %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
