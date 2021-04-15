@@ -18,6 +18,11 @@ Rails.application.routes.draw do
         end
       end
     end
+    namespace :trainee do
+      root "courses#index"
+      resources :user_courses, only: :show
+      resources :course_subjects, only: :show
+    end
     resources :course_subjects, only: :show
   end
 end

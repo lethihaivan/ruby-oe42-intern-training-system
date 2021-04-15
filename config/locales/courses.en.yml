@@ -1,5 +1,8 @@
 en:
   courses:
+    course_active: "Course active"
+    course_joined: "Course joined"
+    no_course_joined: "No course joined"
     subjects: 
       list_tasks: "List Task"
       course_subject_not_found: "Not found subject of course"
@@ -50,3 +53,9 @@ en:
         fail: "Updated Fail"
       edit:
         title: "Edit Course"
+    trainee:
+      subjects:
+        user_subject_not_found: "User subject not found"
+        task:
+          no_tasks: "Nothing task"
+          view_task: "View task quily"

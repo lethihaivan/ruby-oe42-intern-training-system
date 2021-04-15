@@ -10,3 +10,11 @@ vi:
     no_choose_user: "Chưa chọn hs thêm ào khoá học"
     success: "Thêm thành công"
     delete_success: "Xóa thành công"
+  status_user_subject:
+    joined: "Bạn đã tham gia chủ đề"
+    active: "Chủ đề đang hoạt động"
+    finished: "Chủ đề đã kết thúc"
+  status_user_course:
+    joined: "Đã tham gia"
+    active: "Hoạt động"
+    finished: "Đã kết thúc"

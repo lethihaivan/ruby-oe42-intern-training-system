@@ -1,0 +1,82 @@
+<h1><%= @course.name %></h1>
+<div class="header_course">
+  <div class="course_meta">
+    <div id="course-info" class="clearfix">
+      <div class="course-image-info p-2">
+      <%= image_tag "https://education.sun-asterisk.vn/assets/default-course-edb1df5c743f99e3b93d19e2f2db5204f217817ec7867fdf4990134f04aa6690.png", size: "126x77", alt: "not found", class: "course_img" %>
+    </div>
+    <div class="course-content-info">
+      <ul>
+        <li>
+          <h4 class="text-uppercase font-weight-bold">
+            <span class="badge badge-warning"><%= @course.status %></span>
+            <a class="text-decoration-none text-muted">
+              <%= link_to @course.name %>
+            </a>
+          </h4>
+        </li>
+        <li class="mb-1">
+          <i class="fa fa-clock"></i>
+            <span>
+              <strong><%= l @course.start_date %>--></strong>
+            </span>
+            <i class="fa fa-long-arrow-right"></i>
+            <span class="text-danger">
+              <strong><%= @course.end_date.present? ? l(@course.end_date) : "N/A" %></strong>
+            </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="content-info mt-3">
+  <ul class="nav nav-tabs  menu-course border-0">
+    <li>
+      <a class="nav-link active" data-toggle="tab" id="tab-subject" href="#subject">
+        <i class="fa fa-list-alt mr-2"></i>
+        <%= @course_subjects.size %>
+      </a>   
+    </li>
+    <li>
+      <a class="nav-link " id="member-area-tab" data-toggle="tab" href="#member">
+        <i class="fa fa-users mr-2"></i>
+        <span id="member-count">
+          <%= @trainees.count %>
+        </span>
+      </a>   
+    </li>
+  </ul>
+  <div class="tab-content float-none">
+    <div id="subject" class="tab-pane active">
+      <div id="list-subject">
+        <% if @course_subjects.any? %>
+          <%= render partial: "trainee/course_subjects/course_subject", collection: @course_subjects %>
+        <% else %>
+          <div class="alert alert-danger"><%= t("subjects.no_subject") %></div>
+        <% end %>
+      </div>
+    </div>
+    <div id="member" class="tab-pane fade p-2">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="d-flex justify-content-between mt-3">
+            <h5 id="trainee-count">
+              <%= t("courses.supervisor.show.list_trainee", count: @trainees.count) %>
+            </h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <% if @trainees.any? %>
+              <%= render partial: "trainee/shared/trainee", collection: @course.trainees, as: :trainee %>
+              <%= will_paginate @trainees, :previous_label => t("will_paginate.previous"),
+                                    :next_label => t("will_paginate.next") %>
+            <% else %>
+              <div class="alert alert-danger" id="no_trainees"><%= t("courses.no_trainee") %>
+              </div>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </div>
+ </div>
+</div>
