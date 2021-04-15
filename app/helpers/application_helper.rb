@@ -42,6 +42,13 @@ module ApplicationHelper
     I18n.t("status_user_course.finished")
   end
 
+  def status_course_subject_bg course_subject
+    return "bg-primary" if course_subject.joined?
+    return "bg-info" if course_subject.active?
+
+    "bg-success"
+  end
+
   def status_course_subject_item course_subject
     return "list-group-item-primary" if course_subject.joined?
     return "list-group-item-info" if course_subject.active?
@@ -54,5 +61,12 @@ module ApplicationHelper
     return "badge badge-info" if course_subject.active?
 
     "badge badge-success"
+  end
+
+  def status_stask_trainee user_task
+    return "list-group-item-dark" if user_task.inprogess?
+    return "list-group-item-success" if user_task.finished?
+
+    "list-group-item-danger"
   end
 end

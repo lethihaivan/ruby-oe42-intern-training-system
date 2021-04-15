@@ -16,7 +16,7 @@ User.create!(name: "Example User",
   end_time: Time.zone.now ,
   deleted: false )
 
-99.times do |n|
+20.times do |n|
   name = Faker::Name.name
   email = "example-#{n+1}@railstutorial.org"
   password = "password"
@@ -34,7 +34,7 @@ User.create!(name: "Example User",
     date_of_birth: date_of_birth,
     start_date: start_date,
     end_time:end_time,
-    deleted: false )
+    deleted: false)
 end
 
 Course.create!(name: "Ruby on rails OE42",
@@ -46,7 +46,7 @@ Course.create!(name: "Ruby on rails OE42",
 
 Course.create!(name: "Java OE42",
   time: 20,
-  status: 2,
+  status: 0,
   start_date: Faker::Time.between(from: DateTime.now - 24, to: DateTime.now),
   end_date: Faker::Time.between(from: DateTime.now + 24, to: DateTime.now),
   image: "")
@@ -60,7 +60,7 @@ Course.create!(name: "Front_end OE42",
 
 Course.create!(name: "QA OE42",
   time: 40,
-  status: 2,
+  status: 0,
   start_date: Faker::Time.between(from: DateTime.now - 24, to: DateTime.now),
   end_date: Faker::Time.between(from: DateTime.now + 24, to: DateTime.now),
   image: "")
@@ -73,13 +73,13 @@ Course.create!(name: "PHP OE42",
   image: "")
 Course.create!(name: "Dotnet OE42",
   time: 40,
-  status: 1,
+  status: 0,
   start_date: Faker::Time.between(from: DateTime.now - 24, to: DateTime.now),
   end_date: Faker::Time.between(from: DateTime.now + 24, to: DateTime.now),
   image: "")
 Course.create!(name: "NodeJs OE42",
   time: 40,
-  status: 1,
+  status: 0,
   start_date: Faker::Time.between(from: DateTime.now - 24, to: DateTime.now),
   end_date: Faker::Time.between(from: DateTime.now + 24, to: DateTime.now),
   image: "")
@@ -178,11 +178,15 @@ end
     end_date: end_date)
 end
 
-99.times do |n|
+50.times do |n|
   task_id = Task.pluck(:id).sample
   user_subject_id = UserSubject.pluck(:id).sample
   status = UserTask.statuses.keys.sample
+  receive_at = Faker::Time.between(from: DateTime.now - 24, to: DateTime.now)
+  finish_at = Faker::Time.between(from: DateTime.now + 24, to: DateTime.now)
   UserTask.create!(task_id: task_id,
     user_subject_id: user_subject_id,
-    status: status)
+    status: status,
+    receive_at: receive_at,
+    finish_at: finish_at)
 end

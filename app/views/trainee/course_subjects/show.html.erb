@@ -1,0 +1,35 @@
+<div class="modal fade" id="new_task"></div>
+<div class="row">
+  <div class="col-md-9">
+    <div class="card <%= status_course_subject_bg @user_subject %>">
+      <h1 class="card-header"><%= @subject.name %><span class="<%= course_subject_status_badge @user_subject %>"><%= @user_subject.status %></span></h1>
+      <div class="card-body">
+        <p class="card-text"><%= @subject.description %></p>
+      </div>
+    </div>
+    <h2 class="title-heading-task"><%= t "subjects.list_tasks" %></h2>
+    <div class="list-group" id="list_tasks_in_subject">
+      <% if @report_tasks.any? %>
+        <%= render partial: "trainee/shared/task", collection: @report_tasks %>
+      <% else %>
+        <div class="alert alert-danger no_task"><%= t "subjects.task.no_tasks" %></div>
+      <% end %>
+    </div>
+    <div class="title-heading-task"><%= t "user_subjects.task.inprogess" %></div>
+    <% if @user_tasks.any? %>
+      <%= render partial: "trainee/shared/user_task", collection: @user_tasks %>
+    <% else %>
+      <div class="alert alert-danger no_task"><%= t "subjects.task.no_tasks" %></div>
+    <% end %>
+  </div>
+  <div class="col-md-3">
+    <div class="belong_courses">
+      <%= button_to t("user_subjects.finish_subject"), finish_trainee_user_subject_task_path(@user_subject), method: :patch, class: "btn btn-danger btn-block", data:{confirm: t("confirm")} if @user_subject.active? %>
+    </div>
+    <h5 class="text-center"><%= t "user_subjects.task.progress" %></h5>
+    <div class="progress">
+      <div class="progress-bar bg-success" role="progressbar" style="width: <%= number_to_percent @user_subject.user_tasks.finished.size, @subject.tasks.size %>%"><%= number_to_percent @user_subject.user_tasks.finished.size, @subject.tasks.size %>%</div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="new_task"></div>

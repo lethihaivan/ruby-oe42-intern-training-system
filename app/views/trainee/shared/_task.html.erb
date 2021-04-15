@@ -1,0 +1,9 @@
+<span class="list-group-item list-group-item-action flex-column align-items-start">
+  <div class="d-flex w-100 justify-content-between">
+    <h5 class="mb-1"><%= task.name %></h5>
+    <small class="text-muted">
+      <%= link_to t("user_subjects.task.receive"), report_trainee_user_subject_task_path(@user_subject, task), method: :post %>
+    </small>
+  </div>
+  <small class="text-muted"><%= task.name %></small>
+</span>

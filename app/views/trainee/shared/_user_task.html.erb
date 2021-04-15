@@ -1,0 +1,15 @@
+<span class="list-group-item list-group-item-action flex-column align-items-start <%= status_stask_trainee user_task %>">
+  <div class="d-flex w-100 justify-content-between">
+    <h5 class="mb-1"><%= user_task.task.name %></h5>
+    <small class="text-muted">
+      <% if user_task.finished? %>
+        <span class="badge badge-secondary"><%= t "user_subjects.task.completed" %></span> |
+        <%= t "user_subjects.task.finish_at" %> <%= l user_task.finish_at, format: :default %>
+      <% else %>
+        <%= link_to t("user_subjects.task.finish"), finish_trainee_user_subject_task_path(@user_subject, user_task.task), method: :patch %>
+      <% end %>
+    </small>
+  </div>
+  <small class="text-muted"><%= user_task.task.name %></small>
+  <small class="text-muted float-right"><%= t "user_subjects.task.receive_at" %> <%= user_task.receive_at.present? ? l(user_task.receive_at) : "N/A" %></small>
+</span>
