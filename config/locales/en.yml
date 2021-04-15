@@ -11,3 +11,11 @@ en:
     success: "Add success"
     erros: "Has errors"
     delete_success: "Deleted success"
+  status_user_subject:
+    joined: "You joined subject"
+    active: "Subject active"
+    finished: "Subject finished"
+  status_user_course:
+    joined: "Joined"
+    active: "Active"
+    finished: "Finished"

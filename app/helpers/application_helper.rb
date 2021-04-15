@@ -27,4 +27,32 @@ module ApplicationHelper
   def user_task_finished course, user
     UserSubject.task_by_course course, user
   end
+
+  def status_user_subject user_subject
+    return I18n.t("status_user_subject.joined") if user_subject.joined?
+    return I18n.t("status_user_subject.active") if user_subject.active?
+
+    I18n.t("status_user_subject.finished")
+  end
+
+  def status_user_course user_course
+    return I18n.t("status_user_course.joined") if user_course.joined?
+    return I18n.t("status_user_course.active") if user_course.active?
+
+    I18n.t("status_user_course.finished")
+  end
+
+  def status_course_subject_item course_subject
+    return "list-group-item-primary" if course_subject.joined?
+    return "list-group-item-info" if course_subject.active?
+
+    "list-group-item-success"
+  end
+
+  def course_subject_status_badge course_subject
+    return "badge badge-primary" if course_subject.joined?
+    return "badge badge-info" if course_subject.active?
+
+    "badge badge-success"
+  end
 end

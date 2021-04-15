@@ -1,5 +1,8 @@
 vi:
   courses:
+    course_active: "Khóa học đang hoạt động"
+    course_joined: "Khóa học dã tham gia"
+    no_course_joined: "Không tham gia khóa học nầo"
     subjects: 
       list_tasks: "Danh sách nhiệm vụ"
       course_subject_not_found: "Không tìm thấy chủ đề khóa học"
@@ -50,3 +53,9 @@ vi:
         fail: "Updated Fail"
       edit:
         title: "Chỉnh sửa khóa học"
+    trainee:
+      subjects:
+        user_subject_not_found: "Không tìm thấy chủ đề nao"
+        task:
+          no_tasks: "Không có nhiệm vụ nào cả"
+          view_task: "Xem nhanh nhiệm vụ"
