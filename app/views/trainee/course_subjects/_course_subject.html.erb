@@ -18,7 +18,7 @@
                   </button>
                 </div>
                 <h5 class="card-title text-success">
-                    <%= link_to course_subject.subject.name, course_subject_path(course_subject.id) %> 
+                    <%= link_to course_subject.name, trainee_course_subject_path(course_subject) %>
                   <small>
                       <%= t("courses.supervisor.show.time", time: course_subject.subject.time) %>
                   </small>

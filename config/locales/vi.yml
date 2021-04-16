@@ -18,3 +18,22 @@ vi:
     joined: "Đã tham gia"
     active: "Hoạt động"
     finished: "Đã kết thúc"
+  user_subjects:
+    finish_subject: "Kết thức chủ đề"
+    task:
+      finish: "Đánh dấu đã hoàn thành"
+      receive: "Nhận nhiệm vụ"
+      receive_success: "Nhận nhiệm vụ thành công"
+      receive_fail: "Nhận nhiệm vụ thất bại"
+      finish_fail: "Kết thúc nhiệm vụ thất bại"
+      not_accepted: "Không đc phép"
+      not_found: "Không tìm thấy gì car"
+      cant_receive: "Không thể  nhận nhiệm vụ"
+      finish_success: "Kết thúc nhiệm vụ thành công"
+      finish_at: "Kết thúc lúc"
+      completed: "Đã hoàn thành"
+      receive_at: "Đã nhận lúc"
+      inprogess: "Nhiệm vụ trong quá trình"
+    subjects:
+      list_tasks: "sách nhiệm vụ"
+      no_tasks: "Không có nhiệm vụ nào cả"

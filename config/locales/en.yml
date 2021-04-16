@@ -19,3 +19,22 @@ en:
     joined: "Joined"
     active: "Active"
     finished: "Finished"
+  user_subjects:
+    finish_subject: "Finsh subject"
+    task:
+      finish: "Mark completed"
+      receive: "Receive task"
+      receive_success: "Received task success"
+      receive_fail: "Received task fail"
+      finish_fail: "Finish task fail"
+      not_accepted: "Not accepted task"
+      not_found: "Not found user subject"
+      cant_receive: "Can't receive task"
+      finish_success: "Finish task success"
+      finish_at: "Finish at"
+      completed: "Completed"
+      receive_at: "Received at"
+      inprogess: "Task inprogess"
+  subjects:
+    list_tasks: "List task"
+    no_tasks: "Nothing tash"
