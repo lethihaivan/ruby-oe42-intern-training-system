@@ -23,6 +23,8 @@ vi:
     finish_success: "Kết thúc thành công"
     not_active_finished: "Không hoạt đông hoạt đã kết thúc"
     finish_subject: "Kết thức chủ đề"
+    start_subject: "Bắt đầu"
+    finished_subject: "Khóa học đã kết thúc"
     task:
       finish: "Đánh dấu đã hoàn thành"
       receive: "Nhận nhiệm vụ"
@@ -40,3 +42,7 @@ vi:
     subjects:
       list_tasks: "sách nhiệm vụ"
       no_tasks: "Không có nhiệm vụ nào cả"
+  course_subjects:
+    start_success: "Bắt đầu chủ đề hóa học thành công"
+    not_accepted: "Không được phép"
+    finish_success: "Kết thúc chủ đề hóa học thành công"

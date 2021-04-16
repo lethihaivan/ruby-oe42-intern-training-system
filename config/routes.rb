@@ -17,6 +17,12 @@ Rails.application.routes.draw do
           patch :finish
         end
       end
+      resources :course_subjects, only: :show do
+        member do
+          patch :finish
+          patch :start
+        end
+      end
     end
     namespace :trainee do
       root "courses#index"
