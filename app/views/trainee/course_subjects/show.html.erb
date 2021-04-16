@@ -9,8 +9,8 @@
     </div>
     <h2 class="title-heading-task"><%= t "subjects.list_tasks" %></h2>
     <div class="list-group" id="list_tasks_in_subject">
-      <% if @report_tasks.any? %>
-        <%= render partial: "trainee/shared/task", collection: @report_tasks %>
+      <% if @receive_tasks.any? %>
+        <%= render partial: "trainee/shared/task", collection: @receive_tasks %>
       <% else %>
         <div class="alert alert-danger no_task"><%= t "subjects.task.no_tasks" %></div>
       <% end %>
@@ -24,7 +24,7 @@
   </div>
   <div class="col-md-3">
     <div class="belong_courses">
-      <%= button_to t("user_subjects.finish_subject"), finish_trainee_user_subject_task_path(@user_subject), method: :patch, class: "btn btn-danger btn-block", data:{confirm: t("confirm")} if @user_subject.active? %>
+      <%= button_to t("user_subjects.finish_subject"), finish_trainee_user_subject_path(@user_subject), method: :patch, class: "btn btn-danger btn-block", data:{confirm: t("confirm")} if @user_subject.active? %>
     </div>
     <h5 class="text-center"><%= t "user_subjects.task.progress" %></h5>
     <div class="progress">
