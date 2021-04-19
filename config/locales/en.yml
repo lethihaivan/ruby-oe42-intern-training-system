@@ -20,13 +20,16 @@ en:
     active: "Active"
     finished: "Finished"
   user_subjects:
+    finish_fail: "Finish fail"
+    finish_success: "Finish success"
+    not_active_finished: "Not active or finish"
     finish_subject: "Finsh subject"
     task:
       finish: "Mark completed"
       receive: "Receive task"
       receive_success: "Received task success"
       receive_fail: "Received task fail"
-      finish_fail: "Finish task fail"
+      finish_fail: "Finish fail"
       not_accepted: "Not accepted task"
       not_found: "Not found user subject"
       cant_receive: "Can't receive task"

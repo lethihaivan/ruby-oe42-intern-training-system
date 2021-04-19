@@ -19,6 +19,9 @@ vi:
     active: "Hoạt động"
     finished: "Đã kết thúc"
   user_subjects:
+    finish_fail: "Kết thúc thất bại"
+    finish_success: "Kết thúc thành công"
+    not_active_finished: "Không hoạt đông hoạt đã kết thúc"
     finish_subject: "Kết thức chủ đề"
     task:
       finish: "Đánh dấu đã hoàn thành"

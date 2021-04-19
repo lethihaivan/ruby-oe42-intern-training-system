@@ -1,10 +1,10 @@
 class Trainee::TasksController < UsersController
   before_action :load_user_subject, :correct_user,
                 :load_course_subject, :load_subject, :load_task,
-                :check_user_subject_active,
-                :load_user_task, only: %i(report finish)
+                :check_user_subject_active, only: %i(receive finish)
+  before_action :load_user_task, only: %i(finish)
 
-  def report
+  def receive
     if @user_task
       flash[:danger] = t "user_subjects.task.receive"
     else
@@ -48,10 +48,6 @@ class Trainee::TasksController < UsersController
 
   def load_task
     @task = Task.find_by id: params[:id]
-    return if @user_task
-
-    flash[:warning] = t("user_subjects.task.not_found")
-    redirect_to trainee_course_subject_path @course_subject
   end
 
   def load_user_task

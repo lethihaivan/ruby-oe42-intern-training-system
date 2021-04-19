@@ -10,11 +10,11 @@ Rails.application.routes.draw do
       resources :courses
       resources :courses do
         member do
-          get "assign_trainee"
-          post "add_trainee" 
-          delete "delete_trainee"
-          post "start"
-          patch "finish"
+          get :assign_trainee
+          post :add_trainee 
+          delete :delete_trainee
+          post :start
+          patch :finish
         end
       end
     end
@@ -23,14 +23,23 @@ Rails.application.routes.draw do
       resources :user_courses, only: :show
       resources :course_subjects, only: :show
       resources :user_subjects, only: :show do
+        member do
+          patch :finish
+        end
         resources :tasks, only: :show do
           member do
-            post "report"
-            patch "finish"
+            post :receive
+            patch :finish
           end
         end
       end
     end
     resources :course_subjects, only: :show
+  end
+  resources :course_subjects, only: :show do
+    member do
+      patch :finish
+      patch :start
+    end
   end
 end
