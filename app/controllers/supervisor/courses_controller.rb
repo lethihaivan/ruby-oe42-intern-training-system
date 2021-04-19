@@ -1,4 +1,4 @@
-class Supervisor::CoursesController < ApplicationController
+class Supervisor::CoursesController < SupervisorController
   before_action :logged_in?, :require_supervisor
   before_action :load_course, except: %i(index new create)
   before_action :load_users_subjects, only: %i(new create edit update)
@@ -112,13 +112,6 @@ class Supervisor::CoursesController < ApplicationController
   def course_params
     params.require(:course).permit :name, :time, :status, :start_date,
                                    :end_date, :image, subject_ids: []
-  end
-
-  def require_supervisor
-    return if current_user.supervisor?
-
-    flash[:success] = t "session.new.not_access"
-    redirect_to supervisor_course_path
   end
 
   def load_course

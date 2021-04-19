@@ -24,6 +24,8 @@ en:
     finish_success: "Finish success"
     not_active_finished: "Not active or finish"
     finish_subject: "Finsh subject"
+    start_subject: "Start"
+    finished_subject: "Course have been finished"
     task:
       finish: "Mark completed"
       receive: "Receive task"
@@ -41,3 +43,7 @@ en:
   subjects:
     list_tasks: "List task"
     no_tasks: "Nothing tash"
+  course_subjects:
+    start_success: "Start course subject success"
+    not_accepted: "Not accepted"
+    finish_success: "Finish course subject success"
