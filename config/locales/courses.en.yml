@@ -1,5 +1,7 @@
 en:
   courses:
+    cancel: "Cancel"
+    delete_trainee_success: " Deleted sussccessfully"
     course_active: "Course active"
     course_joined: "Course joined"
     no_course_joined: "No course joined"

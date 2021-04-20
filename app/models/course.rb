@@ -18,6 +18,6 @@ class Course < ApplicationRecord
     return if start_date.blank? || end_date.blank?
 
     error_msg = I18n.t "courses.supervisor.index.date_validate"
-    errors.add(error_msg) if end_date < start_date
+    errors.add(:end_date, error_msg) if end_date < start_date
   end
 end

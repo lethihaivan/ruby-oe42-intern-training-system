@@ -73,17 +73,13 @@ class Supervisor::CoursesController < SupervisorController
     trainee_ids = params[:trainee_ids]
     ActiveRecord::Base.transaction do
       trainee_ids.each do |trainee_id|
-        @course.user_courses.create! user_id: trainee_id
+        trainee_course = @course.user_courses.create! user_id: trainee_id
+        trainee_course.active!
       end
     end
     render json: {success: t("courses.add_trainee_success")}
   rescue StandardError
     flash[:error] = t "alert.erros"
-  ensure
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   def delete_trainee
@@ -103,10 +99,12 @@ class Supervisor::CoursesController < SupervisorController
   private
 
   def check_avalible_course
-    return if @course.open?
+    return if @course.start? || @course.joined?
 
     flash[:warning] = t("courses.supervisor.load_course.check_open?")
-    redirect_to root_path
+    respond_to do |format|
+      format.html{redirect_to request.referer}
+    end
   end
 
   def course_params

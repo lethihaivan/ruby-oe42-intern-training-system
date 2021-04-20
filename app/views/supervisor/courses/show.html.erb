@@ -37,9 +37,9 @@
     <li>
       <a class="nav-link " id="member-area-tab" data-toggle="tab" href="#member">
         <i class="fa fa-users mr-2"></i>
-        <span id="member-count">
-          <%= @trainees.count %>
-        </span>
+      <span class="badge badge-success" id="sum_trainees">
+        <%= @course.trainees.size %>
+      </span>
       </a>   
     </li>
   </ul>

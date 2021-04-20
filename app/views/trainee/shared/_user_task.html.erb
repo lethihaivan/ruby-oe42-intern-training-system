@@ -3,7 +3,10 @@
     <h5 class="mb-1"><%= user_task.task.name %></h5>
     <small class="text-muted">
       <% if user_task.finished? %>
-        <span class="badge badge-secondary"><%= t "user_subjects.task.completed" %></span> |
+        <button class="btn btn-success btn-sm rounded text-white" disabled="">
+          <i class="fa fa-certificate"></i>
+          <%= t "user_subjects.task.completed" %>
+        </button>
         <%= t "user_subjects.task.finish_at" %> <%= l user_task.finish_at, format: :default %>
       <% else %>
         <%= link_to t("user_subjects.task.finish"), finish_trainee_user_subject_task_path(@user_subject, user_task.task), method: :patch %>

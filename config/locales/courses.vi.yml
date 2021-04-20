@@ -1,5 +1,7 @@
 vi:
   courses:
+    cancel: "Hủy"
+    delete_trainee_success: " Xóa thành công"
     course_active: "Khóa học đang hoạt động"
     course_joined: "Khóa học dã tham gia"
     no_course_joined: "Không tham gia khóa học nầo"
