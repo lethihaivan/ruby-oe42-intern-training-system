@@ -3,7 +3,6 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 //= require i18n/translations
-//= require alertify
 //= require i18n
 //= require i18n.js
 
@@ -12,6 +11,7 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "bootstrap"
+import alertify from "alertifyjs"
 require("jquery")
 import I18n from "i18n-js/index.js.erb"
 import toastr from "toastr/toastr"
@@ -58,7 +58,7 @@ $(document).on('click', '#add_trainee', function(e){
       url: window.location.href + '/add_trainee',
       type: 'POST',
       data: {trainee_ids: checked},
-      dataType: 'script',
+      dataType: 'json',
       success: function(data) {
         alert(I18n.t("alert.success"));
         window.location.reload()
@@ -69,16 +69,38 @@ $(document).on('click', '#add_trainee', function(e){
   };
 });
 $(document).on('click', '#delete_trainee', function(e){
+  var this_el = $(this);
   var trainee_id = parseInt($(this).attr('trainee_id'));
-    $.ajax({
-      url: window.location.href + '/delete_trainee',
-      data: {user_id: trainee_id},
-      type: 'DELETE',
-      dataType: 'script',
-      success: function(data) {
-        alert(I18n.t("alert.delete_success"));
-        window.location.reload()
-      }
-    })
+  alertify.confirm(I18n.t("alert.confirm_text"), I18n.t("alert.confirm"),
+    function(){
+      $.ajax({
+        url: window.location.href + '/delete_trainee',
+        data: {user_id: trainee_id},
+        type: 'DELETE',
+        dataType: 'json'
+      })
+      .done(function(el) {
+        if(el.success){
+          this_el.closest('li').slideUp().remove();
+          alertify.success(el.success);
+          var sum_trainees = parseInt($('#sum_trainees').html()) - 1;
+          $('#sum_trainees').html(sum_trainees)
+        } else {
+          alertify.error(el.error);
+        }
+      })
+      .fail(function(err) {
+        alertify.error(err);
+      });
+    },
+    function(){
+      alertify.error(I18n.t("courses.cancel"));
+    });
 });
 
+$(document).ready(function(){
+  $(".click").click(function(){
+    var target = $(this).parent().children(".expand");
+    $(target).slideToggle();
+  });
+});

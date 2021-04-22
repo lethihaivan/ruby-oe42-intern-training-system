@@ -278,3 +278,49 @@ fieldset.group legend {
   font-size: 100%;
   color: black;
 }
+#container {width:500px; margin:10px;}
+#container h4{
+    background-color:#FAF9F0;
+    padding:20px;
+    box-shadow: 0px 0px 5px #ccc;
+    position: relative;
+}
+
+#container h4:hover{cursor:pointer;}
+
+div.expand{
+    color:#000000;
+    background-color:#EDECDF;
+    display:none;
+    padding: 0 20px 20px 20px;
+    z-index:-4;
+}
+
+
+p{color:#666; padding-top:30px;}
+a{color:#991F2C; text-decoration:none;}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.mb-1, .my-1 {
+  margin-bottom: 0.25rem !important;
+}
+p {
+  line-height: 1.3125rem;
+}
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}

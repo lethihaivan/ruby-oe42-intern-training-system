@@ -7,6 +7,8 @@ en:
     previous: "Previous"
     next: "Next"
   alert:
+    confirm_text: "Confirm"
+    confirm: "Are you sure ???"
     no_choose_user: "Has been no choose user add couses"
     success: "Add success"
     erros: "Has errors"

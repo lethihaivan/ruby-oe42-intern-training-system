@@ -18,8 +18,8 @@ class Trainee::CourseSubjectsController < UsersController
                                 .find_by course_subject_id: @course_subject.id
     return if @user_subject
 
-    flash[:warning] = t("courses.subject.user_subject_not_found")
-    redirect_to root_path
+    flash[:warning] = t("courses.supervisor.load_course.check_open?")
+    redirect_to trainee_root_path
   end
 
   def load_user_tasks

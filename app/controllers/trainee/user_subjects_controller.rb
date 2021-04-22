@@ -16,7 +16,7 @@ class Trainee::UserSubjectsController < UsersController
     @user_subject = UserSubject.find_by id: params[:id]
     return if @user_subject
 
-    flash[:warning] = t("courses.subject.course_subject_not_found")
+    flash[:warning] = t("courses.supervisor.load_course.check_open?")
     redirect_to root_path
   end
 

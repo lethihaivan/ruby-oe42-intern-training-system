@@ -27,24 +27,32 @@
                     <%= t("courses.supervisor.show.guide") %>
                   <%= link_to course_subject.subject.description %> 
                     <div>
-                      <i class="fa fa-chevron-down pull-right toggle_subject" data-toggle="subject-<%= course_subject.subject.id %>"></i>
-                      <span class="sum_task">
-                        <p>
-                          <span class="badge badge-secondary"><%= course_subject.subject.tasks.size %></span>
-                          <%= t "courses.trainee.subjects.task.view_task" %>
-                        </p>
-                      </span>
+                      <i class="fa fa-chevron-down pull-right toggle_subject" data-toggle="SubjectContainer-<%= course_subject.subject.id %>"></i>
+                        <div id="container">
+                          <div>
+                            <h4 class="click"><span class="badge badge-secondary"><%= course_subject.subject.tasks.size %></span><%= t "courses.trainee.subjects.task.view_task" %></h4>
+                            <div class="expand">
+                              <% if course_subject.subject.tasks.any? %>
+                                <div class="fluid-row">
+                                  <div class="tasks_mess"><%= t "subjects.list_tasks" %></div>
+                                  <div class="col">
+                                    <ul class="list_tasks">
+                                      <%= render partial: "tasks/task", collection: course_subject.subject.tasks, as: :task %>
+                                    </ul>
+                                  </div>
+                                </div>
+                              <% else %>
+                                <div class="alert alert-warning"><%= t "subjects.task.no_tasks" %></div>
+                              <% end %>
+                            </div>
+                          </div>
+                        </div>
                     </div>
                 </p>
               </div>
             </div>
         </div>
       </div>
-        <div class="col-md-3">
-          <div class="subject_actions">
-              <a class="btn btn-success-outline w-100"><i class="fa fa-bolt"><%= status_user_subject course_subject %></i></a>
-          </div>
-        </div>
       </div>
     </li>
   </ul>
