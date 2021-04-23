@@ -1,6 +1,7 @@
 vi:
   courses:
     cancel: "Hủy"
+    add_trainee_success: "Thêm thành viên thành công"
     delete_trainee_success: " Xóa thành công"
     course_active: "Khóa học đang hoạt động"
     course_joined: "Khóa học dã tham gia"

@@ -9,18 +9,20 @@ Rails.application.routes.draw do
     namespace :supervisor do
       resources :courses
       resources :courses do
+        resources :course_subjects, only: :show do
+          member do
+            patch :finish
+            patch :start
+          end
+        end
+      end
+      resources :courses do
         member do
           get :assign_trainee
           post :add_trainee 
           delete :delete_trainee
           post :start
           patch :finish
-        end
-      end
-      resources :course_subjects, only: :show do
-        member do
-          patch :finish
-          patch :start
         end
       end
     end
@@ -39,13 +41,6 @@ Rails.application.routes.draw do
           end
         end
       end
-    end
-    resources :course_subjects, only: :show
-  end
-  resources :course_subjects, only: :show do
-    member do
-      patch :finish
-      patch :start
     end
   end
 end

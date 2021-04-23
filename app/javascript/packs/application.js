@@ -44,7 +44,6 @@ $(document).ready(function(){
   $("#course_subject_ids").select2();
 });
 
-
 $(document).on('click', '#add_trainee', function(e){
   var checked = []
   $("input[name='course[trainee_ids][]']:checked").each(function ()
@@ -52,22 +51,35 @@ $(document).on('click', '#add_trainee', function(e){
     checked.push(parseInt($(this).val()));
   });
   if( checked.length == 0 ){
-    alert(I18n.t("alert.no_choose_user"));
+    alertify.error(I18n.t("courses.add_trainee"));
   } else {
-    $.ajax({
-      url: window.location.href + '/add_trainee',
-      type: 'POST',
-      data: {trainee_ids: checked},
-      dataType: 'json',
-      success: function(data) {
-        alert(I18n.t("alert.success"));
-        window.location.reload()
-      }
-    });
-    $('#modal-trainee').modal('hide');
-    $('.nav-item a[href="#pills-trainee"]').tab('show');
+    alertify.confirm(I18n.t("alert.confirm_text"), I18n.t("alert.confirm"),
+      function(){
+        $.ajax({
+          url: window.location.href + '/add_trainee',
+          type: 'POST',
+          data: {trainee_ids: checked},
+          dataType: 'json'
+        })
+        .done(function(el) {
+          if(el && el.error){
+            alertify.error(el.error);
+          } else {
+            alertify.success(el.success);
+          }
+        })
+        .fail(function(err) {
+          alertify.error(err);
+        });
+        $('#modal-trainee').modal('hide');
+        $('.nav-item a[href="#pills-trainee"]').tab('show');
+      },
+      function(){
+        alertify.error(I18n.t("courses.cancel"));
+      });
   };
 });
+
 $(document).on('click', '#delete_trainee', function(e){
   var this_el = $(this);
   var trainee_id = parseInt($(this).attr('trainee_id'));

@@ -15,7 +15,7 @@
               </button>
             </div>
             <h5 class="card-title text-success">
-                <%= link_to course_subject.subject.name, course_subject_path(course_subject.id) %> 
+                <%= link_to course_subject.subject.name, supervisor_course_course_subject_path(course_subject.course.id,course_subject.id) %> 
               <small>
                   <%= t("courses.supervisor.show.time", time: course_subject.subject.time) %>
               </small>
@@ -32,9 +32,8 @@
                 <span class="badge badge-secondary"><%= course_subject.subject.tasks.size %></span><%= t "subjects.tasks" %>
                 <span class="badge badge-danger"><%= course_subject.subject.time %></span><%= t "subjects.time_day" %>
               </span>
-              <%= button_to t("user_subjects.finish_subject"), finish_supervisor_course_subject_path(course_subject), method: :patch, class: "btn btn-danger btn-block" if course_subject.active? %>
-              <%= button_to t("user_subjects.start_subject"), start_supervisor_course_subject_path(course_subject), method: :patch, class: "btn btn-success btn-block" if course_subject.joined? %>
-              <%= button_to t("user_subjects.finished_subject"), course_subject, class: "btn btn-info btn-block" if course_subject.finished? %>
+              <%= button_to t("user_subjects.finish_subject"), finish_supervisor_course_course_subject_path(course_subject.course.id,course_subject.id), method: :patch, class: "btn btn-danger btn-block" if course_subject.active? %>
+              <%= button_to t("user_subjects.start_subject"), start_supervisor_course_course_subject_path(course_subject.course.id,course_subject.id), method: :patch, class: "btn btn-success btn-block" if course_subject.joined? %>
             </div>
         </div>
     </div>
