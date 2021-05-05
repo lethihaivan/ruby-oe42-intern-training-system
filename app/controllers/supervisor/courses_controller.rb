@@ -45,9 +45,7 @@ class Supervisor::CoursesController < SupervisorController
     else
       flash[:warning] = t "courses.supervisor.start_course_not_allow"
     end
-    respond_to do |format|
-      format.html{redirect_to request.referer}
-    end
+    redirect_to supervisor_courses_path
   end
 
   def finish
@@ -56,9 +54,7 @@ class Supervisor::CoursesController < SupervisorController
     else
       flash[:warning] = t "courses.supervisor.finish_course_not_allow"
     end
-    respond_to do |format|
-      format.html{redirect_to request.referer}
-    end
+    redirect_to supervisor_courses_path
   end
 
   def assign_trainee
@@ -79,7 +75,7 @@ class Supervisor::CoursesController < SupervisorController
     end
     render json: {success: t("courses.add_trainee_success")}
   rescue StandardError
-    flash[:error] = t "alert.erros"
+    render json: {error: t("alert.erros")}
   end
 
   def delete_trainee
@@ -93,18 +89,16 @@ class Supervisor::CoursesController < SupervisorController
     end
     render json: {success: t("courses.delete_trainee_success")}
   rescue StandardError
-    flash[:error] = t "alert.erros"
+    render json: {error: t("alert.erros")}
   end
 
   private
 
   def check_avalible_course
-    return if @course.start? || @course.joined?
+    return if @course.start? || @course.open?
 
     flash[:warning] = t("courses.supervisor.load_course.check_open?")
-    respond_to do |format|
-      format.html{redirect_to request.referer}
-    end
+    redirect_to root_path
   end
 
   def course_params
@@ -114,6 +108,10 @@ class Supervisor::CoursesController < SupervisorController
 
   def load_course
     @course = Course.includes(subjects: :tasks).find_by id: params[:id]
+    return if @course
+
+    flash[:warning] = t("courses.subjects.course_subject_not_found")
+    redirect_to supervisor_courses_path
   end
 
   def load_users_subjects

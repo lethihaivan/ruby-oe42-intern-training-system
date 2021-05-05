@@ -7,6 +7,6 @@ class SupervisorController < ApplicationController
     return if current_user.supervisor?
 
     flash[:success] = t "session.new.not_access"
-    redirect_to supervisor_course_path
+    redirect_to root_path
   end
 end
