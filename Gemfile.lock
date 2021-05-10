@@ -364,7 +364,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   config
   database_cleaner
-  devise
+  devise (~> 4.1)
   factory_bot_rails
   faker (= 2.1.2)
   figaro
