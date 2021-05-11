@@ -14,3 +14,7 @@ course:
   name_min_length: 5
   paginate:
     per_page: 5
+controller:
+  namespace_for_supervisor: "Supervisor"
+  namespace_for_trainee: "Trainee"
+

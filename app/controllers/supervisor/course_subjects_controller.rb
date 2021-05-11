@@ -1,7 +1,7 @@
 class Supervisor::CourseSubjectsController < SupervisorController
+  authorize_resource :course_subject
   before_action :authenticate_user!
-  before_action :require_supervisor,
-                :load_course_subject, :load_subject,
+  before_action :load_course_subject, :load_subject,
                 :load_tasks
 
   def show; end

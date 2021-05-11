@@ -15,6 +15,7 @@ class User < ApplicationRecord
     where("id not in (?)", UserCourse.select("user_id")
    .where(course_id: course_id))
   end)
+
   def self.digest string
     cost =  if ActiveModel::SecurePassword.min_cost
               BCrypt::Engine::MIN_COST

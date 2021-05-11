@@ -1,4 +1,6 @@
 vi:
+  controllers:
+    autorization_fail: "Khong tìm thấy trang!"
   courses:
     cancel: "Hủy"
     add_trainee_success: "Thêm thành viên thành công"
