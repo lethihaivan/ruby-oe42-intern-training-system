@@ -1,10 +1,4 @@
 class UsersController < ApplicationController
-  before_action :logged_in?
-  def show
-    @user = User.find_by id: params[:id]
-    return if @user
-
-    flash[:warning] = t("session.warning.not_found")
-    redirect_to root_path
-  end
+  before_action :user_signed_in?, only: :show
+  def show; end
 end

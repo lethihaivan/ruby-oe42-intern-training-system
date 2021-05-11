@@ -1,5 +1,5 @@
 class Supervisor::CoursesController < SupervisorController
-  before_action :logged_in?, :require_supervisor
+  before_action :authenticate_user!, :require_supervisor
   before_action :load_course, except: %i(index new create)
   before_action :load_users_subjects, only: %i(new create edit update)
   before_action :load_trainees, :load_course_subjects, only: :show

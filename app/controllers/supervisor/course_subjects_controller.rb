@@ -1,5 +1,6 @@
 class Supervisor::CourseSubjectsController < SupervisorController
-  before_action :logged_in?, :require_supervisor,
+  before_action :authenticate_user!
+  before_action :require_supervisor,
                 :load_course_subject, :load_subject,
                 :load_tasks
 

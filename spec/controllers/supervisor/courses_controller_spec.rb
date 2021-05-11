@@ -17,10 +17,7 @@ RSpec.describe Supervisor::CoursesController, type: :controller do
   let!(:course_start){FactoryBot.create :course, status: 1}
   let!(:course_finsh){FactoryBot.create :course, status: 2}
 
-  before do
-    log_in FactoryBot.create :user
-    current_user
-  end
+  login_user
   describe "before action" do
     before{log_in supervisor}
   end
@@ -52,8 +49,6 @@ RSpec.describe Supervisor::CoursesController, type: :controller do
   end
 
   describe "POST create" do
-    before {log_in supervisor}
-
     context "when valid attributes" do
       it do
         post :create, params: {course: FactoryBot.attributes_for(:course)}
@@ -77,13 +72,11 @@ RSpec.describe Supervisor::CoursesController, type: :controller do
         get :index
       end
 
-      it{expect(flash[:success]).to eq(
-        I18n.t "session.new.not_access")}
+      it{expect(response).to be_successful}
     end
 
     context "when user signed in as an supervisor" do
       before do
-        log_in supervisor
         get :index
       end
 
@@ -95,7 +88,6 @@ RSpec.describe Supervisor::CoursesController, type: :controller do
     before{get :new}
     context "when user signed in as an supervisor" do
       before do
-        log_in supervisor
         get :new
       end
       it{expect(response).to render_template :new}
@@ -109,7 +101,6 @@ RSpec.describe Supervisor::CoursesController, type: :controller do
 
     context "when user signed in as an supervisor" do
       before do
-        log_in supervisor
         get :edit, params:{id: course.id}
       end
       it{expect(response).to render_template :edit}

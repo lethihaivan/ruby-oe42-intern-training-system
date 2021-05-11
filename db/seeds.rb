@@ -13,8 +13,9 @@ User.create!(name: "Example User",
   gender: 1,
   date_of_birth: Time.zone.now,
   start_date: Time.zone.now,
-  end_time: Time.zone.now ,
-  deleted: false )
+  end_time: Time.zone.now,
+  deleted: false
+  )
 
 20.times do |n|
   name = Faker::Name.name
