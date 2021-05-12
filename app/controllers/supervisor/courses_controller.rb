@@ -1,5 +1,6 @@
 class Supervisor::CoursesController < SupervisorController
-  before_action :authenticate_user!, :require_supervisor
+  authorize_resource :course
+  before_action :authenticate_user!
   before_action :load_course, except: %i(index new create)
   before_action :load_users_subjects, only: %i(new create edit update)
   before_action :load_trainees, :load_course_subjects, only: :show

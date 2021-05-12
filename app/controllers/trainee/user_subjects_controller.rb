@@ -1,4 +1,5 @@
 class Trainee::UserSubjectsController < UsersController
+  authorize_resource :user_subject
   before_action :load_user_subject, :correct_user
 
   def finish

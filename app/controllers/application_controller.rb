@@ -3,6 +3,15 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
+  rescue_from CanCan::AccessDenied do
+    respond_to do |format|
+      format.html do
+        flash[:danger] = t "controllers.autorization_fail"
+        redirect_to root_path
+      end
+      format.js{render nothing: true, status: "404"}
+    end
+  end
 
   protected
 

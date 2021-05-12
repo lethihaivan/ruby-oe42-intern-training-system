@@ -1,4 +1,6 @@
 en:
+  controllers:
+    autorization_fail: "Page not found!"
   courses:
     cancel: "Cancel"
     add_trainee_success: " Add trainee sussccessfully"

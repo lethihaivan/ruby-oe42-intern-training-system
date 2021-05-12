@@ -1,4 +1,5 @@
 class Trainee::TasksController < UsersController
+  authorize_resource :task
   before_action :load_user_subject, :correct_user,
                 :load_course_subject, :load_subject, :load_task,
                 :check_user_subject_active, only: %i(receive finish)

@@ -1,4 +1,5 @@
 class Trainee::CourseSubjectsController < UsersController
+  authorize_resource :course_subject
   before_action :load_course_subject, :load_user_subject,
                 :load_user_tasks, :load_subject, :load_tasks, only: :show
   def show; end

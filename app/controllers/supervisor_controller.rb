@@ -1,12 +1,10 @@
 class SupervisorController < ApplicationController
-  before_action :logged_in?, :require_supervisor
+  before_action :logged_in?
 
   private
 
-  def require_supervisor
-    return if current_user.supervisor?
-
-    flash[:success] = t "session.new.not_access"
-    redirect_to root_path
+  def current_ability
+    @current_ability ||=
+      Ability.new(current_user, Settings.controller.namespace_for_supervisor)
   end
 end

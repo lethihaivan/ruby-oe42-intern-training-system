@@ -1,4 +1,5 @@
 class Trainee::UserCoursesController < UsersController
+  authorize_resource :user_course
   before_action :load_user_course, only: :show
   before_action :correct_user
 
