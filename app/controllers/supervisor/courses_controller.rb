@@ -8,7 +8,8 @@ class Supervisor::CoursesController < SupervisorController
   before_action :check_trainee_on_course, only: :delete_trainee
 
   def index
-    @courses = Course.create_newest.paginate page: params[:page],
+    @search = Course.search params[:q]
+    @courses = @search.result.create_newest.paginate page: params[:page],
       per_page: Settings.course.paginate.per_page
   end
 

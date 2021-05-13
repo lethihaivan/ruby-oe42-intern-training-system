@@ -1,4 +1,18 @@
 vi:
+  supervisor:
+    courses:
+      search_form:
+        name_search: "Tên khóa học"
+        status_search: "Trạng thái"
+        search_button: "Tìm"
+        reset_link: "Hủy tìm"
+  activerecord:
+    attributes:
+      course:
+        statuses:
+          open: Mở
+          start: Đã bắt đầu
+          finished: Đã kết thúc
   controllers:
     autorization_fail: "Khong tìm thấy trang!"
   courses:

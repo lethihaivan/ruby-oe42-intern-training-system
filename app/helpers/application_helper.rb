@@ -69,4 +69,10 @@ module ApplicationHelper
 
     "list-group-item-danger"
   end
+
+  def human_attribute_course_enum
+    Course.statuses.map do |key, value|
+      [t("activerecord.attributes.course.statuses.#{key}"), value]
+    end
+  end
 end

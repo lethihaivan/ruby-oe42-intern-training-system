@@ -1,0 +1,10 @@
+<div class="course-search-form">
+  <%= search_form_for [:trainee ,@search], class: "form-inline" do |f| %>
+    <div class="form-group ">
+      <%= f.text_field :name_cont, class: "form-control", placeholder: t(".name_search") %>
+      <%= f.select :status_eq, human_attribute_course_enum, {prompt: t(".status_search")}, class: "form-control" %>
+      <%= f.submit t(".search_button"), class: "btn btn-default form-component" %>
+      <%= link_to t(".reset_link"), request.path, class:"form-component" %>
+    </div>
+  <% end %>
+</div>
