@@ -4,6 +4,7 @@
     </div>
     <div class="col-md-9">
     <h4><%= t("courses.supervisor.index.title") %></h4>
+    <%= render "search_form" %>
       <%= link_to t("courses.supervisor.new.heading"), new_supervisor_course_path , class: "btn btn-primary"  %>
       <% if @courses.any? %>
         <ul class="timeline">

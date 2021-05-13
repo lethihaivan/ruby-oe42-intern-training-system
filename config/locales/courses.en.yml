@@ -1,4 +1,18 @@
 en:
+  supervisor:
+    courses:
+      search_form:
+        name_search: "Course name"
+        status_search: "Status"
+        search_button: "Search now"
+        reset_link: "Cancle search"
+  activerecord:
+    attributes:
+      course:
+        statuses:
+          open: Open
+          start: Start
+          finished: Finished
   controllers:
     autorization_fail: "Page not found!"
   courses:
