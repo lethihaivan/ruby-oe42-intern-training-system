@@ -24,6 +24,7 @@ gem "mysql2", "~> 0.5"
 gem "puma", "~> 5.0"
 gem "rails", "~> 6.1.3"
 gem "rails-i18n"
+gem "rails_admin", "~> 2.0"
 gem "ransack"
 gem "sass-rails", ">= 6"
 gem "simplecov"
@@ -31,7 +32,7 @@ gem "simplecov-rcov"
 gem "toastr-rails"
 gem "turbolinks", "~> 5"
 gem "webpacker", "~> 5.0"
-gem "will_paginate", "3.1.8"
+gem "will_paginate", ">=3.0.pre2"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

@@ -6,7 +6,6 @@ class User < ApplicationRecord
   has_many :user_tasks, dependent: :destroy
   has_many :tasks, through: :user_tasks
   has_many :user_subjects, dependent: :destroy
-  has_many :subjects, through: :user_subjects
   enum role: {admin: 0, supervisor: 1, trainee: 2}
   enum gender: {male: 0, female: 1}
   scope :ordered_by_name, ->{order :name}
