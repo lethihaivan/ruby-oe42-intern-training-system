@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
+    mount RailsAdmin::Engine => "/admin", as: "rails_admin"
     root "static_pages#home"
     devise_for :users
     get "/help", to: "static_pages#help"
