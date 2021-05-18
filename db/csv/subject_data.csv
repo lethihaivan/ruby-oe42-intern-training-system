@@ -1,0 +1,8 @@
+Name,Time,Description,Optional,Order,Course
+Rails,10,Rails tutorial,true,1,1
+Git,10,Git basic and advance,true,2,2
+Mysql,10,MySql basic,false,3,1
+Ruby,8,Ruby programing language,true,4,4
+PHP,6,PHP programing language,true,5,3
+Laravel,4,Laravel quicktasks,false,6,2
+Scrum,2,Basic Scrum,true,7,4

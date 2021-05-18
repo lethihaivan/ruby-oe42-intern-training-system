@@ -1,0 +1,23 @@
+Email,Password,Name,Role,Gender,Date of birth,Start date,End time,Deleted
+haivan17tclc2@gmail.com,haivan,Example User,supervisor,female,"May 15, 2021 03:01","May 15, 2021 03:01","May 15, 2021 03:01",false
+example-1@railstutorial.org,password,Phan Thi,trainee,male,"April 27, 2021 15:58","April 30, 2021 09:01","May 22, 2021 18:36",false
+example-2@railstutorial.org,password,Đào Thu,trainee,male,"April 29, 2021 08:13","May 06, 2021 05:13","May 30, 2021 12:23",false
+example-3@railstutorial.org,password,Ngô Long Vũ Hiền,supervisor,male,"April 26, 2021 11:36","May 08, 2021 07:47","June 07, 2021 07:46",false
+example-4@railstutorial.org,password,Đoàn Hoàng,supervisor,female,"May 07, 2021 11:25","April 24, 2021 18:51","May 19, 2021 13:43",false
+example-5@railstutorial.org,password,Trần Đỗ,trainee,male,"May 07, 2021 06:20","May 06, 2021 22:44","June 06, 2021 05:27",false
+example-6@railstutorial.org,password,Mai Trung Lâm Vương,supervisor,male,"May 08, 2021 23:35","May 02, 2021 04:47","May 15, 2021 11:11",false
+example-7@railstutorial.org,password,Hoàng Thanh Vũ Kha,trainee,male,"May 01, 2021 21:55","May 13, 2021 03:34","May 19, 2021 00:13",false
+example-8@railstutorial.org,password,Tăng Vũ,admin,male,"April 28, 2021 08:47","April 26, 2021 18:57","May 30, 2021 10:36",false
+example-9@railstutorial.org,password,Nguyễn Đinh Tuân Trung,supervisor,male,"April 21, 2021 15:11","May 03, 2021 00:59","May 31, 2021 14:35",false
+example-10@railstutorial.org,password,Vương Nhàn,admin,male,"April 22, 2021 23:35","April 29, 2021 11:24","June 03, 2021 15:27",false
+example-11@railstutorial.org,password,Đỗ Trần Tú Hà,admin,female,"May 13, 2021 04:52","May 06, 2021 18:22","May 25, 2021 11:45",false
+example-12@railstutorial.org,password,Phạm Cường Dương,supervisor,male,"May 11, 2021 17:42","April 28, 2021 02:08","May 15, 2021 04:53",false
+example-13@railstutorial.org,password,Vương Long,admin,female,"April 25, 2021 00:37","May 09, 2021 14:46","May 18, 2021 11:49",false
+example-14@railstutorial.org,password,Bùi Trương Sa,admin,female,"May 01, 2021 07:18","May 11, 2021 02:11","May 21, 2021 14:22",false
+example-15@railstutorial.org,password,Vũ Mai Hà,admin,female,"April 30, 2021 03:23","May 10, 2021 17:52","May 18, 2021 08:51",false
+example-16@railstutorial.org,password,Đỗ Đinh Tâm,supervisor,female,"May 09, 2021 20:04","April 27, 2021 17:58","June 01, 2021 15:30",false
+example-17@railstutorial.org,password,Lê Vương Hồ Phùng,supervisor,female,"April 25, 2021 11:53","May 05, 2021 02:47","May 23, 2021 22:52",false
+example-18@railstutorial.org,password,Đặng Phan Hà,trainee,female,"May 13, 2021 18:43","May 08, 2021 20:08","May 23, 2021 17:51",false
+example-19@railstutorial.org,password,Phùng Minh Hữu Vương,supervisor,female,"May 08, 2021 16:26","April 26, 2021 03:24","June 02, 2021 21:38",false
+example-20@railstutorial.org,password,Đào Đinh,admin,female,"May 05, 2021 09:26","May 06, 2021 01:41","May 20, 2021 12:16",false
+pham.van.hoang-b@sun-asterisk.com,123456,hello,trainee,female,"May 03, 2021 10:15","May 04, 2021 10:15","May 28, 2021 10:15",false
